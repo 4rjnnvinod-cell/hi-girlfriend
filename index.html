@@ -3,42 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Arjun & Meenakshi's Romantic Tic-Tac-Toe - A dreamy, girlfriend-approved couples game loaded with hearts, cute bets, magical sparkles, and love!">
-  <title>Arjun ❤️ Meenakshi | Love Edition Tic-Tac-Toe</title>
+  <meta name="description" content="A romantic Tic-Tac-Toe love gift hand-crafted with infinite love by Arjun, dedicated specially to his girlfriend Meenakshi. Featuring our memories, golden serial lights, and Ay Hairathe.">
+  <title>For Meenakshi 💖 | With Love From Arjun</title>
   
   <!-- Google Fonts: Romantic & Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
        ROMANTIC DESIGN SYSTEM & CSS VARIABLES
        ------------------------------------------------------------- */
     :root {
-      /* Dark Velvet Romance Theme (Default) */
       --bg-dark: #12030d;
-      --bg-gradient: radial-gradient(circle at 50% 20%, #29081e 0%, #15020e 60%, #0c0108 100%);
-      --surface-glass: rgba(45, 12, 33, 0.65);
-      --surface-glass-border: rgba(255, 105, 180, 0.22);
-      --surface-glass-hover: rgba(65, 18, 48, 0.75);
+      --bg-gradient: radial-gradient(circle at 50% 15%, #2c0720 0%, #15020e 55%, #0c0108 100%);
+      --surface-glass: rgba(45, 12, 33, 0.72);
+      --surface-glass-border: rgba(255, 105, 180, 0.28);
+      --surface-glass-hover: rgba(70, 18, 52, 0.85);
       
       --pink-neon: #ff2d88;
       --pink-glow: rgba(255, 45, 136, 0.45);
-      --pink-subtle: rgba(255, 45, 136, 0.15);
+      --pink-subtle: rgba(255, 45, 136, 0.16);
       --pink-pastel: #ff85be;
       --pink-blush: #ffd3e6;
       
-      --rose-gold: #ff6b8b;
-      --gold-sparkle: #ffbe3b;
+      --gold-sparkle: #ffc83b;
+      --gold-glow: rgba(255, 200, 59, 0.6);
+      --gold-serial: #ffd54f;
+      
+      --meenakshi-color: #ff2a85;
+      --meenakshi-glow: rgba(255, 42, 133, 0.55);
+      --meenakshi-bg: rgba(255, 42, 133, 0.16);
       
       --arjun-color: #38bdf8;
-      --arjun-glow: rgba(56, 189, 248, 0.4);
-      --arjun-bg: rgba(56, 189, 248, 0.12);
-      
-      --meenakshi-color: #ff3385;
-      --meenakshi-glow: rgba(255, 51, 133, 0.45);
-      --meenakshi-bg: rgba(255, 51, 133, 0.12);
+      --arjun-glow: rgba(56, 189, 248, 0.45);
+      --arjun-bg: rgba(56, 189, 248, 0.14);
       
       --text-main: #fff0f7;
       --text-muted: #e4a8c9;
@@ -47,34 +47,29 @@
       --font-main: 'Outfit', sans-serif;
       --font-serif: 'Playfair Display', serif;
       --font-rounded: 'Quicksand', sans-serif;
+      --font-handwriting: 'Dancing Script', cursive;
       
       --radius-sm: 10px;
       --radius-md: 18px;
       --radius-lg: 28px;
       --radius-full: 9999px;
       
-      --shadow-love: 0 10px 40px rgba(255, 45, 136, 0.18), inset 0 0 0 1px var(--surface-glass-border);
+      --shadow-love: 0 10px 40px rgba(255, 45, 136, 0.22), inset 0 0 0 1px var(--surface-glass-border);
       --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Light "Strawberry Milk" Theme */
     body.theme-strawberry {
       --bg-dark: #fff0f5;
       --bg-gradient: radial-gradient(circle at 50% 10%, #ffe3ef 0%, #fff0f6 50%, #fdf2f8 100%);
-      --surface-glass: rgba(255, 255, 255, 0.75);
-      --surface-glass-border: rgba(255, 105, 180, 0.3);
-      --surface-glass-hover: rgba(255, 255, 255, 0.95);
-      
+      --surface-glass: rgba(255, 255, 255, 0.82);
+      --surface-glass-border: rgba(255, 105, 180, 0.35);
+      --surface-glass-hover: rgba(255, 255, 255, 0.98);
       --text-main: #4a0d2a;
       --text-muted: #852d59;
       --text-dim: #b86e92;
-      
-      --shadow-love: 0 12px 35px rgba(244, 114, 182, 0.2), inset 0 0 0 1px rgba(255, 182, 217, 0.5);
+      --shadow-love: 0 12px 35px rgba(244, 114, 182, 0.25), inset 0 0 0 1px rgba(255, 182, 217, 0.5);
     }
 
-    /* -------------------------------------------------------------
-       GLOBAL RESET & FLOATING HEARTS
-       ------------------------------------------------------------- */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -93,20 +88,251 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem 1rem 2.5rem;
+      padding: 3rem 1rem 3rem;
       position: relative;
       overflow-x: hidden;
       transition: background 0.4s ease;
     }
 
-    /* Ambient Romantic Glow Spheres */
+    /* -------------------------------------------------------------
+       GOLDEN SERIAL / FAIRY LIGHTS ACROSS TOP
+       ------------------------------------------------------------- */
+    .serial-lights-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      pointer-events: none;
+      z-index: 100;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .serial-wire {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      stroke: rgba(255, 215, 0, 0.4);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    .serial-bulb-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 101;
+    }
+
+    .bulb-socket {
+      width: 6px;
+      height: 7px;
+      background: #4a3b1a;
+      border-radius: 2px 2px 0 0;
+    }
+
+    .serial-bulb {
+      width: 12px;
+      height: 16px;
+      border-radius: 50% 50% 45% 45%;
+      background: radial-gradient(circle at 35% 35%, #fffef0 20%, #ffd54f 60%, #ffb300 100%);
+      box-shadow: 0 0 14px #ffd54f, 0 0 28px #ffb300, 0 4px 12px rgba(255, 179, 0, 0.7);
+      animation: fairyTwinkle 2.2s infinite alternate ease-in-out;
+      transform-origin: top center;
+    }
+
+    @keyframes fairyTwinkle {
+      0% { opacity: 0.55; filter: brightness(0.85); transform: scale(0.95); }
+      50% { opacity: 1; filter: brightness(1.25); transform: scale(1.08); }
+      100% { opacity: 0.75; filter: brightness(1); transform: scale(1); }
+    }
+
+    /* -------------------------------------------------------------
+       FLOATING MEMORY POLAROIDS IN BACKGROUND
+       ------------------------------------------------------------- */
+    .memory-gallery-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .floating-polaroid {
+      position: absolute;
+      background: #ffffff;
+      padding: 6px 6px 18px 6px;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 45, 136, 0.25);
+      cursor: pointer;
+      pointer-events: auto;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, z-index 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.82;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    .floating-polaroid:hover {
+      opacity: 1;
+      transform: scale(1.15) rotate(0deg) !important;
+      box-shadow: 0 20px 45px rgba(255, 45, 136, 0.45);
+      z-index: 50;
+    }
+
+    .floating-polaroid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .polaroid-caption {
+      font-family: var(--font-handwriting);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #9f1239;
+      margin-top: 5px;
+      text-align: center;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .polaroid-pin {
+      position: absolute;
+      top: -6px;
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, #ff2d88, #9f1239);
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Fixed ambient memory placements (responsively hidden on narrow screens, visible on sides) */
+    .polaroid-1 {
+      width: 105px;
+      height: 125px;
+      top: 12%;
+      left: 3%;
+      transform: rotate(-7deg);
+      animation: floatSway 9s infinite alternate ease-in-out;
+    }
+
+    .polaroid-2 {
+      width: 110px;
+      height: 130px;
+      top: 48%;
+      left: 2.5%;
+      transform: rotate(6deg);
+      animation: floatSway 11s infinite alternate-reverse ease-in-out;
+    }
+
+    .polaroid-3 {
+      width: 105px;
+      height: 125px;
+      top: 14%;
+      right: 3%;
+      transform: rotate(8deg);
+      animation: floatSway 10s infinite alternate ease-in-out;
+    }
+
+    .polaroid-4 {
+      width: 115px;
+      height: 135px;
+      top: 50%;
+      right: 2.5%;
+      transform: rotate(-5deg);
+      animation: floatSway 12s infinite alternate-reverse ease-in-out;
+    }
+
+    .polaroid-5 {
+      width: 100px;
+      height: 120px;
+      bottom: 6%;
+      left: 8%;
+      transform: rotate(-4deg);
+      animation: floatSway 8s infinite alternate ease-in-out;
+    }
+
+    .polaroid-6 {
+      width: 100px;
+      height: 120px;
+      bottom: 6%;
+      right: 8%;
+      transform: rotate(7deg);
+      animation: floatSway 9.5s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes floatSway {
+      0% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-12px) rotate(-2deg); }
+      100% { transform: translateY(6px) rotate(-8deg); }
+    }
+
+    @media (max-width: 900px) {
+      .polaroid-1, .polaroid-2, .polaroid-3, .polaroid-4, .polaroid-5, .polaroid-6 {
+        display: none;
+      }
+    }
+
+    /* Drifting Memory Bubbles (Mobile & Desktop) */
+    .drifting-memory {
+      position: absolute;
+      bottom: -150px;
+      width: 75px;
+      height: 92px;
+      background: #fff;
+      padding: 4px 4px 12px 4px;
+      border-radius: 5px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      animation: driftUp linear infinite;
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 0.75;
+    }
+
+    .drifting-memory:hover {
+      opacity: 1;
+      transform: scale(1.3) !important;
+      z-index: 500;
+    }
+
+    .drifting-memory img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    @keyframes driftUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+      }
+      15% { opacity: 0.75; }
+      85% { opacity: 0.75; }
+      100% {
+        transform: translateY(-115vh) rotate(18deg) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Background Ambient Glows */
     .ambient-glow {
       position: fixed;
       border-radius: 50%;
       filter: blur(110px);
       pointer-events: none;
       z-index: 0;
-      opacity: 0.45;
+      opacity: 0.42;
       animation: floatAmbient 16s ease-in-out infinite alternate;
     }
 
@@ -130,21 +356,20 @@
     .ambient-glow-3 {
       width: 350px;
       height: 350px;
-      background: radial-gradient(circle, #ffbe3b, transparent 70%);
+      background: radial-gradient(circle, #ffd54f, transparent 70%);
       top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      opacity: 0.2;
-      animation: floatAmbient 22s ease-in-out infinite alternate-reverse;
+      opacity: 0.18;
     }
 
     @keyframes floatAmbient {
       0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(50px, 35px) scale(1.12); }
-      100% { transform: translate(-40px, 50px) scale(0.92); }
+      50% { transform: translate(45px, 30px) scale(1.1); }
+      100% { transform: translate(-35px, 45px) scale(0.92); }
     }
 
-    /* Floating Drifting Background Hearts */
+    /* Drifting background hearts */
     .floating-hearts-container {
       position: fixed;
       inset: 0;
@@ -163,23 +388,12 @@
     }
 
     @keyframes riseHeart {
-      0% {
-        transform: translateY(0) rotate(0deg) scale(0.6);
-        opacity: 0;
-      }
-      15% {
-        opacity: 0.65;
-      }
-      85% {
-        opacity: 0.55;
-      }
-      100% {
-        transform: translateY(-110vh) rotate(360deg) scale(1.1);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(0deg) scale(0.6); opacity: 0; }
+      15% { opacity: 0.6; }
+      85% { opacity: 0.5; }
+      100% { transform: translateY(-110vh) rotate(360deg) scale(1.1); opacity: 0; }
     }
 
-    /* Confetti & Particle Canvas */
     #fx-canvas {
       position: fixed;
       inset: 0;
@@ -190,13 +404,102 @@
     }
 
     /* -------------------------------------------------------------
-       MAIN APP CONTAINER
+       FLOATING MUSIC CONTROLLER (AY HAIRATHE)
+       ------------------------------------------------------------- */
+    .music-widget {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 1000;
+      background: var(--surface-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: var(--radius-full);
+      padding: 0.45rem 1rem 0.45rem 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 45, 136, 0.3);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .music-widget:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: var(--pink-neon);
+      box-shadow: 0 12px 35px rgba(255, 45, 136, 0.45);
+    }
+
+    .vinyl-disc {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #ff2d88 15%, #180312 20%, #ff85be 40%, #180312 60%, #ffd3e6 85%, #0c0108 100%);
+      box-shadow: 0 0 10px rgba(255, 45, 136, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinVinyl 5s linear infinite;
+    }
+
+    .vinyl-disc.paused {
+      animation-play-state: paused;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .vinyl-center-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #ff2d88;
+    }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .music-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--pink-blush);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .music-artist {
+      font-size: 0.68rem;
+      color: var(--gold-sparkle);
+      font-weight: 600;
+    }
+
+    .music-btn-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin-left: 0.2rem;
+    }
+
+    /* -------------------------------------------------------------
+       MAIN GAME CONTAINER
        ------------------------------------------------------------- */
     .game-container {
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 520px;
+      max-width: 530px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -204,25 +507,25 @@
     }
 
     /* -------------------------------------------------------------
-       HEADER & TITLE
+       HEADER
        ------------------------------------------------------------- */
     header {
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       width: 100%;
     }
 
-    .love-badge {
+    .gift-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.35rem 1rem;
+      padding: 0.35rem 1.1rem;
       background: var(--surface-glass);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--surface-glass-border);
       border-radius: var(--radius-full);
       font-size: 0.8rem;
@@ -230,76 +533,85 @@
       letter-spacing: 0.08em;
       color: var(--pink-blush);
       text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(255, 45, 136, 0.15);
+      box-shadow: 0 4px 18px rgba(255, 45, 136, 0.2);
       animation: gentlePulse 3s infinite ease-in-out;
     }
 
     @keyframes gentlePulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 45, 136, 0.15); }
-      50% { transform: scale(1.03); box-shadow: 0 4px 22px rgba(255, 45, 136, 0.3); }
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 18px rgba(255, 45, 136, 0.2); }
+      50% { transform: scale(1.03); box-shadow: 0 4px 26px rgba(255, 45, 136, 0.35); }
     }
 
-    .love-badge .heart-beat {
-      display: inline-block;
-      color: #ff2d88;
-      animation: heartbeat 1.4s infinite;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      20% { transform: scale(1.35); }
-      40% { transform: scale(1.1); }
-      60% { transform: scale(1.35); }
-      80% { transform: scale(1); }
-    }
-
-    /* Couple Name Banner Title */
-    .title-wrapper {
+    .main-title-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-top: 0.2rem;
+      gap: 0.2rem;
+      margin-top: 0.15rem;
     }
 
-    .name-arjun {
-      font-size: clamp(1.8rem, 6.5vw, 2.5rem);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #e0f2fe 10%, var(--arjun-color) 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 30px var(--arjun-glow);
-    }
-
-    .heart-divider {
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
-      animation: heartbeat 1.6s infinite;
-      display: inline-block;
-      filter: drop-shadow(0 0 12px #ff2d88);
-    }
-
-    .name-meenakshi {
-      font-size: clamp(1.8rem, 6.5vw, 2.5rem);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #fff0f7 10%, #ff4298 50%, #ff80b5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 30px var(--meenakshi-glow);
-    }
-
-    .subtitle-tagline {
+    .title-dedication {
+      font-size: 0.88rem;
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 0.95rem;
+      color: var(--pink-pastel);
+      letter-spacing: 0.05em;
+    }
+
+    .title-girlfriend-name {
+      font-size: clamp(2.1rem, 7vw, 2.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #ffffff 10%, #ff4fa3 50%, #ff8ec4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 35px var(--meenakshi-glow);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .title-girlfriend-name .crown {
+      display: inline-block;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      filter: drop-shadow(0 0 10px #ffbe3b);
+      animation: floatCrown 2.5s infinite ease-in-out;
+    }
+
+    @keyframes floatCrown {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-4px) rotate(5deg); }
+    }
+
+    .by-arjun-tag {
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--text-muted);
-      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    .by-arjun-tag .arjun-highlight {
+      color: var(--arjun-color);
+      text-shadow: 0 0 10px var(--arjun-glow);
+      font-weight: 800;
+    }
+
+    .sweet-whisper {
+      font-size: 0.85rem;
+      font-family: var(--font-rounded);
+      color: var(--text-dim);
+      font-style: italic;
+      max-width: 440px;
+      line-height: 1.35;
+      margin-top: 0.1rem;
     }
 
     /* -------------------------------------------------------------
-       DATE NIGHT STAKES (BETS & CUDDLES BAR)
+       DATE NIGHT STAKES BANNER
        ------------------------------------------------------------- */
     .stakes-banner {
       width: 100%;
@@ -327,25 +639,25 @@
     .stakes-content {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       font-size: 0.85rem;
       color: var(--text-main);
       overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
     }
 
     .stakes-icon {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
     }
 
     .stakes-label {
-      font-weight: 700;
+      font-weight: 800;
       color: var(--pink-pastel);
       text-transform: uppercase;
       font-size: 0.72rem;
       letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 0.1rem;
     }
 
     .stakes-text {
@@ -354,6 +666,7 @@
       color: var(--text-main);
       text-overflow: ellipsis;
       overflow: hidden;
+      white-space: nowrap;
     }
 
     .stakes-reroll-btn {
@@ -361,13 +674,13 @@
       border: 1px solid var(--surface-glass-border);
       color: var(--pink-blush);
       border-radius: var(--radius-full);
-      padding: 0.3rem 0.65rem;
+      padding: 0.35rem 0.75rem;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
       flex-shrink: 0;
       transition: var(--transition);
       font-family: inherit;
@@ -376,20 +689,20 @@
     .stakes-reroll-btn:hover {
       background: var(--pink-neon);
       color: #fff;
-      transform: rotate(15deg);
+      transform: scale(1.05);
     }
 
     /* -------------------------------------------------------------
-       NAV & CONTROLS PANEL
+       ROBO ARJUN OPPONENT STATUS BAR (NO COMPLICATED MODE SWITCHER)
        ------------------------------------------------------------- */
-    .controls-panel {
+    .opponent-bar {
       width: 100%;
       background: var(--surface-glass);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--surface-glass-border);
       border-radius: var(--radius-lg);
-      padding: 0.65rem 0.95rem;
+      padding: 0.55rem 0.95rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -397,35 +710,26 @@
       box-shadow: var(--shadow-love);
     }
 
-    .mode-selector {
-      display: flex;
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--surface-glass-border);
-      padding: 0.25rem;
-      border-radius: var(--radius-full);
-      gap: 0.25rem;
-    }
-
-    .mode-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      padding: 0.4rem 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: inherit;
+    .opponent-badge {
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink-blush);
     }
 
-    .mode-btn.active {
-      background: linear-gradient(135deg, #ff2d88, #ff6b8b);
-      color: #ffffff;
-      box-shadow: 0 2px 12px rgba(255, 45, 136, 0.4);
+    .robot-chip {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(255, 45, 136, 0.25));
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .utility-group {
@@ -434,12 +738,11 @@
       gap: 0.45rem;
     }
 
-    /* Cute Symbol Set Selector */
-    .symbol-select-btn {
+    .btn-memories-pill {
       background: var(--pink-subtle);
       border: 1px solid var(--surface-glass-border);
       border-radius: var(--radius-full);
-      padding: 0.35rem 0.7rem;
+      padding: 0.35rem 0.75rem;
       font-size: 0.78rem;
       font-weight: 700;
       color: var(--pink-blush);
@@ -451,7 +754,7 @@
       font-family: inherit;
     }
 
-    .symbol-select-btn:hover {
+    .btn-memories-pill:hover {
       background: var(--pink-neon);
       color: #fff;
       box-shadow: 0 0 15px var(--pink-glow);
@@ -480,12 +783,12 @@
     }
 
     /* -------------------------------------------------------------
-       SCOREBOARD: ARJUN & MEENAKSHI
+       SCOREBOARD: MEENAKSHI (O.JPEG) VS ROBO ARJUN (X.JPEG)
        ------------------------------------------------------------- */
     .scoreboard {
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1.1fr 0.8fr 1.1fr;
       gap: 0.75rem;
     }
 
@@ -501,15 +804,29 @@
       transition: var(--transition);
       box-shadow: var(--shadow-love);
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .score-card:hover {
       transform: translateY(-2px);
     }
 
-    /* Arjun's Card */
+    .score-card.card-meenakshi {
+      border-color: rgba(255, 42, 133, 0.45);
+      background: linear-gradient(145deg, rgba(255, 42, 133, 0.16), var(--surface-glass));
+    }
+
+    .score-card.card-meenakshi.active-turn {
+      border-color: var(--meenakshi-color);
+      box-shadow: 0 0 28px var(--meenakshi-glow), inset 0 0 15px var(--meenakshi-bg);
+      transform: translateY(-4px) scale(1.03);
+    }
+
     .score-card.card-arjun {
-      border-color: rgba(56, 189, 248, 0.3);
+      border-color: rgba(56, 189, 248, 0.35);
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.12), var(--surface-glass));
     }
 
     .score-card.card-arjun.active-turn {
@@ -518,66 +835,81 @@
       transform: translateY(-4px) scale(1.02);
     }
 
-    /* Meenakshi's Card */
-    .score-card.card-meenakshi {
-      border-color: rgba(255, 51, 133, 0.3);
-    }
-
-    .score-card.card-meenakshi.active-turn {
-      border-color: var(--meenakshi-color);
-      box-shadow: 0 0 25px var(--meenakshi-glow), inset 0 0 15px var(--meenakshi-bg);
-      transform: translateY(-4px) scale(1.02);
-    }
-
-    /* Ties / Hugs Card */
     .score-card.card-ties {
-      border-color: rgba(255, 190, 59, 0.25);
+      border-color: rgba(255, 200, 59, 0.3);
     }
 
-    .player-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.15rem;
-      margin-bottom: 0.25rem;
+    /* Avatar thumbnails in scoreboard */
+    .score-avatar-wrap {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin-bottom: 0.3rem;
+    }
+
+    .score-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 2px solid #fff;
+    }
+
+    .card-meenakshi .score-avatar {
+      border-color: var(--meenakshi-color);
+      box-shadow: 0 0 12px var(--meenakshi-glow);
+    }
+
+    .card-arjun .score-avatar {
+      border-color: var(--arjun-color);
+      box-shadow: 0 0 12px var(--arjun-glow);
+    }
+
+    .score-avatar-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      font-size: 0.9rem;
+      line-height: 1;
     }
 
     .player-role-badge {
       font-size: 0.65rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       padding: 0.15rem 0.5rem;
       border-radius: var(--radius-full);
+      margin-bottom: 0.2rem;
+    }
+
+    .card-meenakshi .player-role-badge {
+      background: var(--meenakshi-bg);
+      color: #ff4fa3;
+      border: 1px solid rgba(255, 42, 133, 0.3);
     }
 
     .card-arjun .player-role-badge {
       background: var(--arjun-bg);
       color: var(--arjun-color);
-    }
-
-    .card-meenakshi .player-role-badge {
-      background: var(--meenakshi-bg);
-      color: var(--meenakshi-color);
+      border: 1px solid rgba(56, 189, 248, 0.25);
     }
 
     .card-ties .player-role-badge {
-      background: rgba(255, 190, 59, 0.12);
+      background: rgba(255, 200, 59, 0.12);
       color: var(--gold-sparkle);
     }
 
     .player-name-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
       font-size: 0.88rem;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.02em;
     }
 
-    .card-arjun .player-name-row { color: var(--arjun-color); }
     .card-meenakshi .player-name-row { color: var(--meenakshi-color); }
+    .card-arjun .player-name-row { color: var(--arjun-color); }
     .card-ties .player-name-row { color: var(--gold-sparkle); }
 
     .score-number {
@@ -601,39 +933,30 @@
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      padding: 0.45rem 1.25rem;
+      padding: 0.45rem 1.3rem;
       background: var(--surface-glass);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--surface-glass-border);
       border-radius: var(--radius-full);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text-main);
       box-shadow: var(--shadow-love);
       transition: var(--transition);
     }
 
-    .turn-symbol-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      filter: drop-shadow(0 0 8px currentColor);
-    }
-
-    .turn-symbol-badge.turn-arjun {
-      color: var(--arjun-color);
-      animation: heartbeat 1.5s infinite;
-    }
-
-    .turn-symbol-badge.turn-meenakshi {
-      color: var(--meenakshi-color);
-      animation: heartbeat 1.5s infinite;
+    .turn-avatar-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--pink-neon);
+      box-shadow: 0 0 10px var(--pink-glow);
     }
 
     /* -------------------------------------------------------------
-       THE 3x3 TIC TAC TOE LOVE BOARD
+       THE 3x3 TIC TAC TOE LOVE BOARD (PHOTOS FOR X AND O)
        ------------------------------------------------------------- */
     .board-wrapper {
       position: relative;
@@ -671,16 +994,15 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      font-size: clamp(2.2rem, 7.5vw, 3.4rem);
-      line-height: 1;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease;
       outline: none;
+      padding: 6px;
     }
 
     .cell::after {
       content: '♥';
       position: absolute;
-      font-size: 1rem;
+      font-size: 1.2rem;
       opacity: 0;
       color: var(--pink-glow);
       transition: var(--transition);
@@ -695,7 +1017,7 @@
     }
 
     .cell:hover:not(.taken):not(:disabled)::after {
-      opacity: 0.35;
+      opacity: 0.4;
       transform: scale(1.4);
     }
 
@@ -707,63 +1029,94 @@
       cursor: default;
     }
 
-    /* Pop-In Symbol Animations */
-    .cell span.mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      animation: popHeart 0.36s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    /* Picture Avatar Placed in Cells */
+    .cell-photo-mark {
+      position: relative;
+      width: 82%;
+      height: 82%;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: popPhoto 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     }
 
-    @keyframes popHeart {
-      0% {
-        opacity: 0;
-        transform: scale(0.2) rotate(-20deg);
-      }
-      70% {
-        transform: scale(1.22) rotate(8deg);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-      }
+    @keyframes popPhoto {
+      0% { opacity: 0; transform: scale(0.3) rotate(-15deg); }
+      70% { transform: scale(1.18) rotate(6deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
     }
 
-    .cell.mark-arjun {
-      background: radial-gradient(circle, var(--arjun-bg) 0%, rgba(255, 255, 255, 0.02) 80%);
-      border-color: rgba(56, 189, 248, 0.45);
-      color: var(--arjun-color);
-      text-shadow: 0 0 18px var(--arjun-glow);
+    .cell-photo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
+    /* Meenakshi's Mark: O */
     .cell.mark-meenakshi {
       background: radial-gradient(circle, var(--meenakshi-bg) 0%, rgba(255, 255, 255, 0.02) 80%);
-      border-color: rgba(255, 51, 133, 0.5);
-      color: var(--meenakshi-color);
-      text-shadow: 0 0 18px var(--meenakshi-glow);
+      border-color: rgba(255, 42, 133, 0.6);
     }
 
-    /* Winning Sparkle Animation */
+    .cell.mark-meenakshi .cell-photo-mark {
+      border: 3px solid var(--meenakshi-color);
+      box-shadow: 0 0 18px var(--meenakshi-glow);
+    }
+
+    .cell.mark-meenakshi::before {
+      content: '👑';
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 1.1rem;
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+      animation: floatCrown 2.5s infinite ease-in-out;
+    }
+
+    /* Robo Arjun's Mark: X */
+    .cell.mark-arjun {
+      background: radial-gradient(circle, var(--arjun-bg) 0%, rgba(255, 255, 255, 0.02) 80%);
+      border-color: rgba(56, 189, 248, 0.55);
+    }
+
+    .cell.mark-arjun .cell-photo-mark {
+      border: 3px solid var(--arjun-color);
+      box-shadow: 0 0 18px var(--arjun-glow);
+    }
+
+    .cell.mark-arjun::before {
+      content: '🤖';
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 1rem;
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+    }
+
+    /* Winning highlight */
     .cell.winning-cell {
       animation: loveVictoryPulse 1.2s infinite ease-in-out alternate;
       z-index: 2;
     }
 
+    .cell.winning-cell.mark-meenakshi {
+      background: radial-gradient(circle, rgba(255, 42, 133, 0.5) 0%, var(--surface-glass) 90%);
+      border-color: var(--meenakshi-color);
+      box-shadow: 0 0 35px var(--meenakshi-glow);
+    }
+
     .cell.winning-cell.mark-arjun {
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, var(--surface-glass) 90%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, var(--surface-glass) 90%);
       border-color: var(--arjun-color);
       box-shadow: 0 0 30px var(--arjun-glow);
     }
 
-    .cell.winning-cell.mark-meenakshi {
-      background: radial-gradient(circle, rgba(255, 51, 133, 0.4) 0%, var(--surface-glass) 90%);
-      border-color: var(--meenakshi-color);
-      box-shadow: 0 0 30px var(--meenakshi-glow);
-    }
-
     @keyframes loveVictoryPulse {
       0% { transform: scale(1); }
-      100% { transform: scale(1.06) rotate(1deg); }
+      100% { transform: scale(1.06); }
     }
 
     /* Laser Love Strike-Through */
@@ -799,7 +1152,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       flex-wrap: wrap;
     }
 
@@ -840,24 +1193,225 @@
       box-shadow: 0 4px 18px rgba(255, 45, 136, 0.4);
     }
 
-    .btn-action.btn-primary:hover {
-      filter: brightness(1.1);
-      box-shadow: 0 6px 25px rgba(255, 45, 136, 0.55);
+    .btn-action.btn-letter {
+      background: linear-gradient(135deg, rgba(255, 200, 59, 0.25), rgba(255, 45, 136, 0.25));
+      border-color: rgba(255, 200, 59, 0.5);
+      color: #fff;
     }
 
     .btn-action.btn-love-note {
-      background: linear-gradient(135deg, rgba(255, 107, 139, 0.25), rgba(255, 190, 59, 0.25));
-      border-color: rgba(255, 190, 59, 0.4);
+      background: linear-gradient(135deg, rgba(255, 107, 139, 0.2), rgba(255, 51, 133, 0.2));
+      border-color: rgba(255, 51, 133, 0.4);
       color: #fff;
     }
 
     /* -------------------------------------------------------------
-       VICTORY / DRAW LOVE MODAL
+       LOVE LETTER MODAL
+       ------------------------------------------------------------- */
+    .letter-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 2, 10, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: 1.25rem;
+    }
+
+    .letter-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .parchment-letter {
+      width: 100%;
+      max-width: 460px;
+      background: linear-gradient(145deg, #fff7fa, #ffe8f2);
+      color: #4a0928;
+      border: 3px double #ff85be;
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2rem 1.8rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 45, 136, 0.35);
+      transform: scale(0.85) rotate(-1deg);
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .letter-modal-overlay.active .parchment-letter {
+      transform: scale(1) rotate(0deg);
+    }
+
+    .wax-seal {
+      width: 54px;
+      height: 54px;
+      background: radial-gradient(circle, #e11d48, #9f1239);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      position: absolute;
+      top: -24px;
+      right: 30px;
+      box-shadow: 0 4px 15px rgba(159, 18, 57, 0.5);
+      border: 2px solid #ffd3e6;
+    }
+
+    .letter-greeting {
+      font-family: var(--font-handwriting);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #be123c;
+      margin-bottom: 0.8rem;
+      line-height: 1.1;
+    }
+
+    .letter-body {
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #501331;
+      margin-bottom: 1.2rem;
+    }
+
+    .letter-signature {
+      font-family: var(--font-handwriting);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #be123c;
+      text-align: right;
+    }
+
+    .letter-signature span {
+      display: block;
+      font-size: 0.85rem;
+      font-family: var(--font-rounded);
+      color: #881337;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .btn-close-letter {
+      margin-top: 1.2rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: linear-gradient(135deg, #ff2d88, #ff6b8b);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 45, 136, 0.35);
+      font-family: var(--font-main);
+      transition: var(--transition);
+    }
+
+    .btn-close-letter:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       MEMORY LIGHTBOX MODAL (WHEN A PHOTO IS CLICKED)
+       ------------------------------------------------------------- */
+    .memory-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 2, 10, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: 1.5rem;
+    }
+
+    .memory-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .memory-card-view {
+      background: #ffffff;
+      padding: 12px 12px 24px 12px;
+      border-radius: 12px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 45, 136, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: scale(0.9) rotate(-1deg);
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .memory-modal-overlay.active .memory-card-view {
+      transform: scale(1) rotate(0deg);
+    }
+
+    .memory-card-img {
+      width: 100%;
+      max-height: 440px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #111;
+    }
+
+    .memory-card-caption {
+      font-family: var(--font-handwriting);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #9f1239;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .memory-card-sub {
+      font-family: var(--font-rounded);
+      font-size: 0.82rem;
+      color: #701a40;
+      margin-top: 4px;
+    }
+
+    .btn-close-memory {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 36px;
+      height: 36px;
+      background: #ff2d88;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* -------------------------------------------------------------
+       VICTORY / GAME OVER LOVE MODAL
        ------------------------------------------------------------- */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(18, 3, 13, 0.85);
+      background: rgba(18, 3, 13, 0.88);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       display: flex;
@@ -877,13 +1431,13 @@
 
     .modal-box {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       background: linear-gradient(145deg, #2c0b22, #180312);
       border: 2px solid var(--surface-glass-border);
       border-radius: var(--radius-lg);
       padding: 2.2rem 1.8rem;
       text-align: center;
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 45, 136, 0.3);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 45, 136, 0.35);
       transform: scale(0.85) translateY(20px);
       transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
@@ -891,44 +1445,20 @@
       align-items: center;
       gap: 1rem;
       position: relative;
-      overflow: hidden;
     }
 
     .modal-overlay.active .modal-box {
       transform: scale(1) translateY(0);
     }
 
-    .modal-icon-badge {
-      width: 80px;
-      height: 80px;
+    .modal-winner-avatar {
+      width: 85px;
+      height: 85px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.6rem;
-      margin-bottom: 0.2rem;
-      animation: heartbeat 1.8s infinite;
-    }
-
-    .modal-icon-badge.winner-arjun {
-      background: radial-gradient(circle, var(--arjun-bg), transparent 80%);
-      border: 2px solid var(--arjun-color);
-      color: var(--arjun-color);
-      box-shadow: 0 0 35px var(--arjun-glow);
-    }
-
-    .modal-icon-badge.winner-meenakshi {
-      background: radial-gradient(circle, var(--meenakshi-bg), transparent 80%);
-      border: 2px solid var(--meenakshi-color);
-      color: var(--meenakshi-color);
+      object-fit: cover;
+      border: 3px solid var(--meenakshi-color);
       box-shadow: 0 0 35px var(--meenakshi-glow);
-    }
-
-    .modal-icon-badge.winner-tie {
-      background: radial-gradient(circle, rgba(255, 190, 59, 0.2), transparent 80%);
-      border: 2px solid var(--gold-sparkle);
-      color: var(--gold-sparkle);
-      box-shadow: 0 0 35px rgba(255, 190, 59, 0.4);
+      animation: heartbeat 1.8s infinite;
     }
 
     .modal-title {
@@ -943,7 +1473,7 @@
       border-radius: var(--radius-md);
       padding: 0.75rem 1rem;
       width: 100%;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--pink-blush);
       font-family: var(--font-rounded);
       line-height: 1.45;
@@ -999,16 +1529,10 @@
       color: var(--text-main);
     }
 
-    .modal-btn-close:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    /* -------------------------------------------------------------
-       SWEET COMPLIMENTS POPUP NOTIFICATION
-       ------------------------------------------------------------- */
+    /* Sweet Compliment Toast Notification */
     .toast-container {
       position: fixed;
-      bottom: 1.5rem;
+      bottom: 4.8rem;
       z-index: 2000;
       display: flex;
       flex-direction: column;
@@ -1021,15 +1545,15 @@
       background: linear-gradient(135deg, #2d0a22, #180312);
       border: 1px solid var(--pink-neon);
       border-radius: var(--radius-full);
-      padding: 0.6rem 1.4rem;
+      padding: 0.65rem 1.4rem;
       color: #fff;
       font-size: 0.88rem;
       font-weight: 600;
-      box-shadow: 0 8px 30px rgba(255, 45, 136, 0.4);
+      box-shadow: 0 8px 30px rgba(255, 45, 136, 0.45);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      animation: toastIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), toastOut 0.3s ease 3.7s forwards;
+      gap: 0.55rem;
+      animation: toastIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), toastOut 0.3s ease 4s forwards;
     }
 
     @keyframes toastIn {
@@ -1080,6 +1604,12 @@
       gap: 0.3rem;
     }
 
+    .footer-dedication {
+      color: var(--pink-pastel);
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
     .shortcut-badge {
       display: inline-block;
       padding: 0.15rem 0.45rem;
@@ -1091,18 +1621,65 @@
       font-family: inherit;
     }
 
-    /* Responsive Tweaks */
     @media (max-width: 440px) {
       .game-container { gap: 0.95rem; }
       .board-wrapper { padding: 0.75rem; }
       .board-grid { gap: 0.5rem; }
       .score-number { font-size: 1.6rem; }
-      .controls-panel { flex-wrap: wrap; }
-      .scoreboard { gap: 0.5rem; }
+      .opponent-bar { flex-wrap: wrap; }
+      .scoreboard { gap: 0.4rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Hidden HTML5 Audio Element for Background Score -->
+  <audio id="bg-music" src="assets/Ay%20Hairathe%20Guru%20320%20Kbps.mp3" loop preload="auto"></audio>
+
+  <!-- Golden Serial / Fairy Lights String Across Top -->
+  <div class="serial-lights-container" id="serial-lights">
+    <!-- SVGs and Bulbs dynamically rendered via JS for perfect distribution -->
+  </div>
+
+  <!-- Background Floating Memory Polaroids -->
+  <div class="memory-gallery-bg" id="memory-gallery-bg">
+    <!-- Pinned side polaroids -->
+    <div class="floating-polaroid polaroid-1" data-caption="With you is where I belong 💕" data-img="assets/WhatsApp Image 2026-10-03 at 11.36.22 PM.jpeg">
+      <div class="polaroid-pin"></div>
+      <img src="assets/WhatsApp%20Image%202026-10-03%20at%2011.36.22%20PM.jpeg" alt="Memory with Meenakshi">
+      <div class="polaroid-caption">My Favorite Girl 💕</div>
+    </div>
+
+    <div class="floating-polaroid polaroid-2" data-caption="That smile cures all my bad days 🌸" data-img="assets/WhatsApp Image 2026-10-03 at 11.36.22 PM (1).jpeg">
+      <div class="polaroid-pin"></div>
+      <img src="assets/WhatsApp%20Image%202026-10-03%20at%2011.36.22%20PM%20(1).jpeg" alt="Memory with Meenakshi">
+      <div class="polaroid-caption">Pure Joy 🌸</div>
+    </div>
+
+    <div class="floating-polaroid polaroid-3" data-caption="You & Me, always and forever ✨" data-img="assets/WhatsApp Image 2026-10-03 at 11.36.22 PM (2).jpeg">
+      <div class="polaroid-pin"></div>
+      <img src="assets/WhatsApp%20Image%202026-10-03%20at%2011.36.22%20PM%20(2).jpeg" alt="Memory with Meenakshi">
+      <div class="polaroid-caption">Soulmates ✨</div>
+    </div>
+
+    <div class="floating-polaroid polaroid-4" data-caption="Cutest human in the galaxy 💖" data-img="assets/WhatsApp Image 2026-10-03 at 11.36.22 PM (3).jpeg">
+      <div class="polaroid-pin"></div>
+      <img src="assets/WhatsApp%20Image%202026-10-03%20at%2011.36.22%20PM%20(3).jpeg" alt="Memory with Meenakshi">
+      <div class="polaroid-caption">Forever Crush 💖</div>
+    </div>
+
+    <div class="floating-polaroid polaroid-5" data-caption="Every moment with you is magic 🍓" data-img="assets/WhatsApp Image 2026-10-03 at 11.36.23 PM.jpeg">
+      <div class="polaroid-pin"></div>
+      <img src="assets/WhatsApp%20Image%202026-10-03%20at%2011.36.23%20PM.jpeg" alt="Memory with Meenakshi">
+      <div class="polaroid-caption">Sweetest 🍓</div>
+    </div>
+
+    <div class="floating-polaroid polaroid-6" data-caption="Coded with all my love for you 👑" data-img="assets/WhatsApp Image 2026-10-03 at 11.36.23 PM (1).jpeg">
+      <div class="polaroid-pin"></div>
+      <img src="assets/WhatsApp%20Image%202026-10-03%20at%2011.36.23%20PM%20(1).jpeg" alt="Memory with Meenakshi">
+      <div class="polaroid-caption">My Queen 👑</div>
+    </div>
+  </div>
 
   <!-- Romantic Ambient Glows -->
   <div class="ambient-glow ambient-glow-1"></div>
@@ -1118,114 +1695,121 @@
   <!-- Sweet Compliment Toasts -->
   <div class="toast-container" id="toast-container"></div>
 
+  <!-- Floating Music Player for Ay Hairathe -->
+  <div class="music-widget" id="music-widget" title="Ay Hairathe - Guru • Click to Play/Pause">
+    <div class="vinyl-disc" id="vinyl-disc">
+      <div class="vinyl-center-dot"></div>
+    </div>
+    <div class="music-info">
+      <span class="music-title">Ay Hairathe 💖</span>
+      <span class="music-artist">A.R. Rahman &bull; Guru</span>
+    </div>
+    <button class="music-btn-toggle" id="btn-music-toggle">▶️</button>
+  </div>
+
   <main class="game-container">
-    <!-- Header -->
+    <!-- Header: Dedicated Surprise Gift For Meenakshi -->
     <header>
-      <div class="love-badge">
-        <span class="heart-beat">💖</span>
-        <span>Girlfriend-Approved Edition</span>
-        <span class="heart-beat">💖</span>
+      <div class="gift-badge">
+        <span style="color: var(--gold-sparkle);">✨</span>
+        <span>A Special Gift For Meenakshi</span>
+        <span style="color: var(--gold-sparkle);">✨</span>
       </div>
 
-      <div class="title-wrapper">
-        <span class="name-arjun" id="display-name-x">ARJUN</span>
-        <span class="heart-divider">❤️</span>
-        <span class="name-meenakshi" id="display-name-o">MEENAKSHI</span>
+      <div class="main-title-container">
+        <span class="title-dedication">Dedicated with all my love to</span>
+        <h1 class="title-girlfriend-name">
+          <span>MEENAKSHI</span>
+          <span class="crown">👑</span>
+        </h1>
+        <div class="by-arjun-tag">
+          <span>Handcrafted with love by</span>
+          <span class="arjun-highlight">Arjun 💘</span>
+        </div>
       </div>
 
-      <p class="subtitle-tagline">May the most loving player win every kiss!</p>
+      <p class="sweet-whisper">
+        "I made this little pink world just for you. (And yes, you're officially allowed to win every single round!)"
+      </p>
     </header>
 
     <!-- Date Night Stakes Banner -->
-    <section class="stakes-banner" id="stakes-banner" title="Click to roll new fun date night stakes!">
+    <section class="stakes-banner" id="stakes-banner" title="Click to roll Arjun's sweet date night treat!">
       <div class="stakes-content">
-        <span class="stakes-icon">🎲</span>
+        <span class="stakes-icon">🎁</span>
         <div>
-          <span class="stakes-label">Tonight's Love Stakes:</span>
-          <span class="stakes-text" id="stakes-text">Loser has to give a 15-minute back massage! 💆‍♀️💕</span>
+          <span class="stakes-label">Arjun's Date Night Treat For Meenakshi:</span>
+          <span class="stakes-text" id="stakes-text">If Meenakshi wins: Arjun gives her a relaxing 20-minute massage! 💆‍♀️💕</span>
         </div>
       </div>
-      <button class="stakes-reroll-btn" id="btn-reroll-stakes" title="Roll another fun dare / prize">
-        <span>🎲 Roll Bet</span>
+      <button class="stakes-reroll-btn" id="btn-reroll-stakes" title="Roll another fun prize from Arjun">
+        <span>🎲 Roll Treat</span>
       </button>
     </section>
 
-    <!-- Controls Panel -->
-    <section class="controls-panel" aria-label="Game Configuration">
-      <div class="mode-selector" role="radiogroup" aria-label="Game Mode">
-        <button id="mode-pvp" class="mode-btn active" role="radio" aria-checked="true" data-mode="pvp">
-          <span>💑 Together</span>
-        </button>
-        <button id="mode-ai" class="mode-btn" role="radio" aria-checked="false" data-mode="ai">
-          <span>🤖 vs Cupid</span>
-        </button>
+    <!-- Robo Arjun Status Bar (Clean & Focused) -->
+    <section class="opponent-bar" aria-label="Game Status">
+      <div class="opponent-badge">
+        <span>Opponent:</span>
+        <div class="robot-chip">
+          <span>🤖 Robo Arjun</span>
+        </div>
       </div>
 
       <div class="utility-group">
-        <!-- Cute Symbols Toggle -->
-        <button id="btn-toggle-symbols" class="symbol-select-btn" title="Cycle cute icons (Hearts, Crowns, Flowers)">
-          <span id="symbol-display">💘 vs 💖</span>
+        <button id="btn-open-memories" class="btn-memories-pill" title="Browse our floating photo memories">
+          <span>📸 Memories (10)</span>
         </button>
 
-        <!-- Sound Toggle -->
-        <button id="btn-sound-toggle" class="icon-btn" title="Toggle Magical Chimes" aria-label="Toggle Sound">
-          <span id="sound-icon">🎵</span>
-        </button>
-
-        <!-- Theme Toggle (Velvet Pink / Strawberry Milk) -->
         <button id="btn-theme-toggle" class="icon-btn" title="Toggle Strawberry Milk Theme" aria-label="Toggle Theme">
           <span>🍓</span>
         </button>
       </div>
     </section>
 
-    <!-- Scoreboard: ARJUN & MEENAKSHI -->
+    <!-- Scoreboard: MEENAKSHI (O.JPEG) VS ROBO ARJUN (X.JPEG) -->
     <section class="scoreboard" aria-label="Scoreboard">
-      <!-- Arjun Card -->
-      <div id="card-player-x" class="score-card card-arjun active-turn" title="Player 1: Arjun">
-        <div class="player-header">
-          <span class="player-role-badge">BOYFRIEND</span>
-          <div class="player-name-row">
-            <span id="label-arjun">ARJUN</span>
-            <span id="icon-arjun">💘</span>
-          </div>
+      <!-- Meenakshi Card (Player O) -->
+      <div id="card-player-o" class="score-card card-meenakshi active-turn" title="Player: Queen Meenakshi">
+        <div class="score-avatar-wrap">
+          <img src="assets/o.jpeg" alt="Meenakshi" class="score-avatar">
+          <span class="score-avatar-badge">👑</span>
         </div>
-        <div id="score-x" class="score-number">0</div>
-        <div class="score-subtitle">Victories 🏆</div>
+        <span class="player-role-badge">MY QUEEN</span>
+        <div class="player-name-row">MEENAKSHI</div>
+        <div id="score-o" class="score-number">0</div>
+        <div class="score-subtitle">Queen Trophies 👑</div>
       </div>
 
       <!-- Ties Card -->
       <div id="card-player-tie" class="score-card card-ties" title="Ties: Perfect Soulmates!">
-        <div class="player-header">
-          <span class="player-role-badge">SOULMATES</span>
-          <div class="player-name-row">
-            <span>HUGS</span>
-            <span>🫂</span>
-          </div>
+        <div class="score-avatar-wrap" style="display:flex;align-items:center;justify-content:center;background:rgba(255,200,59,0.15);">
+          <span style="font-size: 1.5rem;">🫂</span>
         </div>
+        <span class="player-role-badge">SOULMATES</span>
+        <div class="player-name-row">HUGS</div>
         <div id="score-ties" class="score-number">0</div>
         <div class="score-subtitle">Love Ties 💕</div>
       </div>
 
-      <!-- Meenakshi Card -->
-      <div id="card-player-o" class="score-card card-meenakshi" title="Player 2: Meenakshi">
-        <div class="player-header">
-          <span class="player-role-badge">GIRLFRIEND</span>
-          <div class="player-name-row">
-            <span id="label-meenakshi">MEENAKSHI</span>
-            <span id="icon-meenakshi">💖</span>
-          </div>
+      <!-- Robo Arjun Card (Player X) -->
+      <div id="card-player-x" class="score-card card-arjun" title="Opponent: Robo Arjun">
+        <div class="score-avatar-wrap">
+          <img src="assets/x.jpeg" alt="Arjun" class="score-avatar">
+          <span class="score-avatar-badge">🤖</span>
         </div>
-        <div id="score-o" class="score-number">0</div>
-        <div class="score-subtitle">Victories 👑</div>
+        <span class="player-role-badge">ROBO ARJUN</span>
+        <div class="player-name-row">ARJUN BOT</div>
+        <div id="score-x" class="score-number">0</div>
+        <div class="score-subtitle">Lucky Wins 😅</div>
       </div>
     </section>
 
     <!-- Turn Indicator -->
     <div id="turn-banner" class="turn-status" aria-live="polite">
       <span>Turn:</span>
-      <span id="turn-symbol" class="turn-symbol-badge turn-arjun">💘</span>
-      <span id="turn-text">Arjun's turn to show love!</span>
+      <img id="turn-avatar" src="assets/o.jpeg" alt="Turn Avatar" class="turn-avatar-badge">
+      <span id="turn-text">Princess Meenakshi's turn to shine! 🌸</span>
     </div>
 
     <!-- 3x3 Board -->
@@ -1251,37 +1835,72 @@
     <!-- Action Buttons Panel -->
     <section class="actions-panel">
       <button id="btn-restart" class="btn-action btn-primary" title="Restart Round (Shortcut: R)">
-        <span>🔄 Restart Round</span>
+        <span>🔄 Next Round</span>
       </button>
 
-      <button id="btn-sweet-compliment" class="btn-action btn-love-note" title="Send Meenakshi or Arjun a sweet compliment!">
-        <span>💌 Send Sweet Note</span>
+      <button id="btn-open-letter" class="btn-action btn-letter" title="Open Love Letter written by Arjun">
+        <span>💌 Letter From Arjun</span>
+      </button>
+
+      <button id="btn-sweet-compliment" class="btn-action btn-love-note" title="Sweet Compliment from Arjun!">
+        <span>✨ Note From Arjun</span>
       </button>
 
       <button id="btn-reset-scores" class="btn-action" title="Clear all scores">
-        <span>✨ Reset Scores</span>
+        <span>Reset</span>
       </button>
     </section>
 
-    <!-- Footer info -->
+    <!-- Footer Dedication -->
     <footer>
-      <p>Tap anywhere to spawn floating hearts 💕 &bull; Shortcut: <span class="shortcut-badge">R</span> to restart</p>
-      <p style="opacity: 0.7; font-size: 0.72rem;">Made with all the love in the universe for Arjun & Meenakshi ✨</p>
+      <p class="footer-dedication">Handcrafted with all my love by Arjun &bull; Exclusively for Meenakshi 💕</p>
+      <p style="opacity: 0.7; font-size: 0.72rem;">Tap anywhere to sprout floating hearts &bull; Click floating photos to view memories</p>
     </footer>
   </main>
+
+  <!-- Love Letter Modal Dialog -->
+  <div id="letter-modal" class="letter-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="parchment-letter">
+      <div class="wax-seal">💌</div>
+      <h2 class="letter-greeting">Dearest Meenakshi,</h2>
+      <p class="letter-body">
+        I made this little game especially for you because you deserve all the pink, all the hearts, and all the cute things in the universe.
+        <br><br>
+        I hung golden fairy lights for you, added our song <i>Ay Hairathe</i>, and filled the sky with our sweetest photos.
+        <br><br>
+        And whenever I'm not right beside you, Robo Arjun is programmed to keep you company and remind you that you already won my entire heart forever.
+      </p>
+      <div class="letter-signature">
+        Forever yours,
+        <br>Arjun 💘
+        <span>Your Devoted Boyfriend</span>
+      </div>
+      <button id="btn-close-letter" class="btn-close-letter">Seal With A Kiss 💋</button>
+    </div>
+  </div>
+
+  <!-- Memory Polaroid Lightbox Modal -->
+  <div id="memory-modal" class="memory-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="memory-card-view">
+      <button id="btn-close-memory" class="btn-close-memory" title="Close">&times;</button>
+      <img id="memory-modal-img" src="" alt="Memory" class="memory-card-img">
+      <div id="memory-modal-caption" class="memory-card-caption">With You 💕</div>
+      <div class="memory-card-sub">One of our treasured moments together ✨</div>
+    </div>
+  </div>
 
   <!-- Victory / Game Over Love Modal -->
   <div id="game-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-box">
-      <div id="modal-icon" class="modal-icon-badge winner-arjun">💘</div>
-      <h2 id="modal-title" class="modal-title">Arjun Wins!</h2>
+      <img id="modal-winner-pic" src="assets/o.jpeg" alt="Winner" class="modal-winner-avatar">
+      <h2 id="modal-title" class="modal-title">Queen Meenakshi Wins!</h2>
       
       <div class="modal-forfeit-box">
-        <strong>Tonight's Stake Claimed:</strong>
-        <span id="modal-stake-claim">Loser has to give a 15-minute back massage! 💆‍♀️💕</span>
+        <strong>Tonight's Treat Claimed:</strong>
+        <span id="modal-stake-claim">If Meenakshi wins: Arjun gives her a relaxing 20-minute massage! 💆‍♀️💕</span>
       </div>
 
-      <p id="modal-desc" class="modal-desc">True love conquered all! Meenakshi's heart is officially stolen forever!</p>
+      <p id="modal-desc" class="modal-desc">Pure perfection! Robo Arjun's circuits melted from your beauty! 🥰</p>
       
       <div class="modal-actions">
         <button id="modal-btn-replay" class="modal-btn modal-btn-play">Next Love Round 💕</button>
@@ -1291,123 +1910,51 @@
   </div>
 
   <!-- -------------------------------------------------------------
-       JAVASCRIPT LOGIC & SYNTHESIZER
+       JAVASCRIPT LOGIC & MUSIC SYNCHRONIZATION
        ------------------------------------------------------------- -->
   <script>
     /* ==========================================
-       DATE NIGHT STAKES LIST
+       ALL 10 MEMORY PHOTOS OF ARJUN & MEENAKSHI
        ========================================== */
+    const MEMORY_PHOTOS = [
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.22 PM.jpeg", caption: "My Favorite Girl In The Universe 💕" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.22 PM (1).jpeg", caption: "Your smile is my happiest place 🌸" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.22 PM (2).jpeg", caption: "Soulmates in every universe ✨" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.22 PM (3).jpeg", caption: "Forever crushing on you, Meenakshi 💖" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.23 PM.jpeg", caption: "Every moment with you is magic 🍓" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.23 PM (1).jpeg", caption: "Queen of my heart 👑" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.23 PM (2).jpeg", caption: "Always laughing together 🥰" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.23 PM (3).jpeg", caption: "Holding your hand is home 💍" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.24 PM.jpeg", caption: "Prettiest girl alive 💐" },
+      { url: "assets/WhatsApp Image 2026-10-03 at 11.36.24 PM (1).jpeg", caption: "Arjun ❤️ Meenakshi Forever 💘" }
+    ];
+
     const COUPLE_STAKES = [
-      "Loser gives a relaxing 15-minute back massage! 💆‍♀️💕",
-      "Winner gets to pick the movie or Netflix series tonight! 🎬🍿",
-      "Loser buys Boba / favorite iced coffee tomorrow! 🧋✨",
-      "Winner gets 10 unconditional sweet kisses right now! 💋🥰",
-      "Loser cooks dinner or orders winner's favorite takeout! 🍕🍝",
-      "Winner gets breakfast in bed this weekend! 🥞☕",
-      "Loser has to give a genuine 60-second compliment speech! 💖👑",
-      "Winner gets control of the music playlist on the next car ride! 🎶🚗",
-      "Loser owes an ice cream date with extra sprinkles! 🍦🍓",
-      "Loser has to post a cute photo of the winner on Instagram stories! 📸💕",
-      "Winner gets to pick tonight's bedtime cuddle position! 🫂✨",
-      "Loser does the dishes tonight with a smile! 🍽️🫧"
+      "If Meenakshi wins: Arjun gives her a relaxing 20-minute massage! 💆‍♀️💕",
+      "If Meenakshi wins: Arjun buys her favorite Boba & sweet treat tomorrow! 🧋🍰",
+      "If Meenakshi wins: Arjun cooks dinner & washes all the dishes tonight! 🍝🫧",
+      "If Meenakshi wins: Arjun takes 100 cute aesthetic photos of her until she loves one! 📸👑",
+      "If Meenakshi wins: Winner gets to pick the movie or Netflix series tonight! 🎬🍿",
+      "If Meenakshi wins: Unlimited forehead kisses & bedtime cuddles! 🫂✨",
+      "If Meenakshi wins: Arjun brings her breakfast in bed this weekend! 🥞☕",
+      "If Robo Arjun wins: Meenakshi has to give the real Arjun 10 sweet kisses! 💋🥰",
+      "If Robo Arjun wins: Meenakshi holds Arjun's hand and says 'You're my favorite boy'! 💖",
+      "If Soulmates Tie: Instant tight hug and sharing an ice cream sundae! 🍨✨"
     ];
 
     const SWEET_NOTES = [
-      "Meenakshi, your smile genuinely lights up Arjun's entire world! ✨💖",
-      "Arjun thinks you're the prettiest girl in the whole galaxy! 🌸😍",
-      "Rule #1: Meenakshi is always right, especially during Tic-Tac-Toe! 👑",
-      "Arjun, you're the sweetest and luckiest boyfriend alive! 💘🥰",
-      "Warning: Arjun's heart rate triples every time Meenakshi laughs! 💓",
-      "Fact: Arjun & Meenakshi are officially the cutest couple ever! 💍✨",
-      "Meenakshi, you deserve unlimited hugs, cute treats, and flowers! 💐🍓",
-      "Every single love song makes Arjun think of Meenakshi! 🎵💕"
-    ];
-
-    const SYMBOL_SETS = [
-      { name: "Hearts", x: "💘", o: "💖", label: "💘 vs 💖" },
-      { name: "Royalty", x: "🤴", o: "👸", label: "🤴 vs 👸" },
-      { name: "Flowers", x: "🌹", o: "🌸", label: "🌹 vs 🌸" },
-      { name: "Treats", x: "🍫", o: "🍓", label: "🍫 vs 🍓" },
-      { name: "Classic", x: "❌", o: "⭕", label: "❌ vs ⭕" }
+      "Arjun says: You are genuinely the prettiest girl in the entire universe, Meenakshi! 🌸",
+      "Robo Arjun message: 'Error 404: Cannot resist Meenakshi's cuteness!' 💖",
+      "Arjun's Secret: My heart does a little backflip every time you smile at me! 🥰",
+      "Arjun's Official Rule: Meenakshi is 100% exempt from losing any argument today! 👑",
+      "From Arjun: Even when you beat me at Tic-Tac-Toe, I'm already winning at life with you! ✨",
+      "Arjun says: I'm the luckiest boyfriend alive to call you mine! 💕",
+      "Robo Arjun reports: 'The real Arjun loves you more than all the stars in the sky!' 🌌",
+      "From Arjun: You're my favorite human, best friend, and forever crush, Meenakshi! 💍"
     ];
 
     /* ==========================================
-       MAGICAL AUDIO SYNTHESIZER (Pure Web Audio)
-       ========================================== */
-    class LoveSoundEngine {
-      constructor() {
-        this.ctx = null;
-        this.muted = false;
-      }
-
-      init() {
-        if (!this.ctx) {
-          const AudioContext = window.AudioContext || window.webkitAudioContext;
-          if (AudioContext) {
-            this.ctx = new AudioContext();
-          }
-        }
-        if (this.ctx && this.ctx.state === 'suspended') {
-          this.ctx.resume();
-        }
-      }
-
-      playTone(freq, type = 'sine', duration = 0.18, peakGain = 0.1) {
-        if (this.muted) return;
-        this.init();
-        if (!this.ctx) return;
-
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-
-        gain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(peakGain, this.ctx.currentTime + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
-
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-
-        osc.start();
-        osc.stop(this.ctx.currentTime + duration);
-      }
-
-      // Fairy chime for Arjun's move
-      playArjunMove() {
-        this.playTone(587.33, 'triangle', 0.22, 0.09); // D5
-        setTimeout(() => this.playTone(880, 'sine', 0.25, 0.08), 50); // A5
-      }
-
-      // Sweet harp chime for Meenakshi's move
-      playMeenakshiMove() {
-        this.playTone(659.25, 'triangle', 0.22, 0.09); // E5
-        setTimeout(() => this.playTone(987.77, 'sine', 0.28, 0.09), 50); // B5
-      }
-
-      // Romantic fanfare on victory
-      playWinFanfare() {
-        const arpeggio = [523.25, 659.25, 783.99, 1046.50, 1318.51];
-        arpeggio.forEach((note, idx) => {
-          setTimeout(() => this.playTone(note, 'triangle', 0.38, 0.11), idx * 80);
-        });
-      }
-
-      // Harmonious draw sound
-      playDrawTune() {
-        const chords = [523.25, 659.25, 783.99];
-        chords.forEach(note => this.playTone(note, 'sine', 0.45, 0.06));
-      }
-
-      // Click bubble sound
-      playClick() {
-        this.playTone(850, 'sine', 0.05, 0.04);
-      }
-    }
-
-    /* ==========================================
-       CONFETTI & FLOATING HEARTS PARTICLES
+       CONFETTI & PARTICLES
        ========================================== */
     class LoveCelebration {
       constructor(canvasId) {
@@ -1425,12 +1972,10 @@
       }
 
       burst(winner) {
-        const heartIcons = ['💖', '💕', '✨', '🌸', '💘', '🍓', '👑', '🥰'];
-        const colors = winner === 'X'
-          ? ['#38bdf8', '#7dd3fc', '#ff6b8b', '#ffd3e6', '#ffffff']
-          : winner === 'O'
-          ? ['#ff2d88', '#ff69b4', '#ff85be', '#ffbe3b', '#ffffff']
-          : ['#ffbe3b', '#f472b6', '#ffd3e6', '#38bdf8', '#ffffff'];
+        const heartIcons = ['💖', '💕', '👑', '🌸', '✨', '🍓', '🎀', '🥰'];
+        const colors = winner === 'O'
+          ? ['#ff2d88', '#ff69b4', '#ffd54f', '#ff85be', '#ffffff']
+          : ['#38bdf8', '#7dd3fc', '#ffd54f', '#ffd3e6', '#ffffff'];
 
         const count = 90;
         const originX = window.innerWidth / 2;
@@ -1439,7 +1984,7 @@
         for (let i = 0; i < count; i++) {
           const angle = Math.random() * Math.PI * 2;
           const speed = Math.random() * 9 + 4;
-          const isEmoji = Math.random() < 0.4;
+          const isEmoji = Math.random() < 0.45;
 
           this.particles.push({
             x: originX,
@@ -1510,40 +2055,41 @@
     }
 
     /* ==========================================
-       WINNING COMBINATIONS & STRIKE COORDINATES
+       WINNING COMBOS
        ========================================== */
     const WINNING_COMBOS = [
-      { combo: [0, 1, 2], line: { x1: 5, y1: 16.66, x2: 95, y2: 16.66 } }, // Row 0
-      { combo: [3, 4, 5], line: { x1: 5, y1: 50,    x2: 95, y2: 50 } },    // Row 1
-      { combo: [6, 7, 8], line: { x1: 5, y1: 83.33, x2: 95, y2: 83.33 } }, // Row 2
-      { combo: [0, 3, 6], line: { x1: 16.66, y1: 5, x2: 16.66, y2: 95 } }, // Col 0
-      { combo: [1, 4, 7], line: { x1: 50,    y1: 5, x2: 50,    y2: 95 } }, // Col 1
-      { combo: [2, 5, 8], line: { x1: 83.33, y1: 5, x2: 83.33, y2: 95 } }, // Col 2
-      { combo: [0, 4, 8], line: { x1: 5, y1: 5, x2: 95, y2: 95 } },        // Diag 1
-      { combo: [2, 4, 6], line: { x1: 95, y1: 5, x2: 5, y2: 95 } }         // Diag 2
+      { combo: [0, 1, 2], line: { x1: 5, y1: 16.66, x2: 95, y2: 16.66 } },
+      { combo: [3, 4, 5], line: { x1: 5, y1: 50,    x2: 95, y2: 50 } },
+      { combo: [6, 7, 8], line: { x1: 5, y1: 83.33, x2: 95, y2: 83.33 } },
+      { combo: [0, 3, 6], line: { x1: 16.66, y1: 5, x2: 16.66, y2: 95 } },
+      { combo: [1, 4, 7], line: { x1: 50,    y1: 5, x2: 50,    y2: 95 } },
+      { combo: [2, 5, 8], line: { x1: 83.33, y1: 5, x2: 83.33, y2: 95 } },
+      { combo: [0, 4, 8], line: { x1: 5, y1: 5, x2: 95, y2: 95 } },
+      { combo: [2, 4, 6], line: { x1: 95, y1: 5, x2: 5, y2: 95 } }
     ];
 
     /* ==========================================
        MAIN APP CLASS
        ========================================== */
-    class RomanticTicTacToe {
+    class GiftForMeenakshiApp {
       constructor() {
         this.board = Array(9).fill(null);
-        this.currentPlayer = 'X'; // 'X' is Arjun, 'O' is Meenakshi
+        // Meenakshi (O) always plays first!
+        this.currentPlayer = 'O'; 
         this.isGameOver = false;
-        this.gameMode = 'pvp'; // Default to Together (Arjun & Meenakshi)
-        this.symbolSetIndex = 0;
         this.currentStake = COUPLE_STAKES[0];
-        this.scores = { X: 0, O: 0, ties: 0 };
+        this.scores = { O: 0, X: 0, ties: 0 };
         this.isBotThinking = false;
 
-        this.sound = new LoveSoundEngine();
         this.fx = new LoveCelebration('fx-canvas');
 
         this.cacheDOM();
         this.bindEvents();
+        this.initGoldenSerialLights();
+        this.initDriftingMemoryBubbles();
         this.initFloatingBackgroundHearts();
         this.initClickToSpawnHearts();
+        this.initBackgroundMusic();
         this.loadSavedState();
         this.updateUI();
       }
@@ -1551,42 +2097,47 @@
       cacheDOM() {
         this.cells = Array.from(document.querySelectorAll('.cell'));
         this.turnBanner = document.getElementById('turn-banner');
-        this.turnSymbol = document.getElementById('turn-symbol');
+        this.turnAvatar = document.getElementById('turn-avatar');
         this.turnText = document.getElementById('turn-text');
 
-        this.scoreX = document.getElementById('score-x');
         this.scoreO = document.getElementById('score-o');
+        this.scoreX = document.getElementById('score-x');
         this.scoreTies = document.getElementById('score-ties');
 
-        this.cardX = document.getElementById('card-player-x');
         this.cardO = document.getElementById('card-player-o');
-        this.labelArjun = document.getElementById('label-arjun');
-        this.labelMeenakshi = document.getElementById('label-meenakshi');
-        this.iconArjun = document.getElementById('icon-arjun');
-        this.iconMeenakshi = document.getElementById('icon-meenakshi');
+        this.cardX = document.getElementById('card-player-x');
 
-        this.modePvpBtn = document.getElementById('mode-pvp');
-        this.modeAiBtn = document.getElementById('mode-ai');
-        
-        this.btnToggleSymbols = document.getElementById('btn-toggle-symbols');
-        this.symbolDisplay = document.getElementById('symbol-display');
-        this.soundBtn = document.getElementById('btn-sound-toggle');
-        this.soundIcon = document.getElementById('sound-icon');
         this.themeBtn = document.getElementById('btn-theme-toggle');
+        this.btnOpenMemories = document.getElementById('btn-open-memories');
 
         this.stakesBanner = document.getElementById('stakes-banner');
         this.stakesText = document.getElementById('stakes-text');
         this.btnRerollStakes = document.getElementById('btn-reroll-stakes');
 
         this.btnRestart = document.getElementById('btn-restart');
+        this.btnOpenLetter = document.getElementById('btn-open-letter');
+        this.btnCloseLetter = document.getElementById('btn-close-letter');
+        this.letterModal = document.getElementById('letter-modal');
         this.btnLoveNote = document.getElementById('btn-sweet-compliment');
         this.btnResetScores = document.getElementById('btn-reset-scores');
 
         this.strikeLine = document.getElementById('strike-line');
 
-        // Modal elements
+        // Music player
+        this.audio = document.getElementById('bg-music');
+        this.musicWidget = document.getElementById('music-widget');
+        this.vinylDisc = document.getElementById('vinyl-disc');
+        this.btnMusicToggle = document.getElementById('btn-music-toggle');
+
+        // Memory Modal
+        this.memoryModal = document.getElementById('memory-modal');
+        this.memoryModalImg = document.getElementById('memory-modal-img');
+        this.memoryModalCaption = document.getElementById('memory-modal-caption');
+        this.btnCloseMemory = document.getElementById('btn-close-memory');
+
+        // Victory Modal
         this.modal = document.getElementById('game-modal');
-        this.modalIcon = document.getElementById('modal-icon');
+        this.modalWinnerPic = document.getElementById('modal-winner-pic');
         this.modalTitle = document.getElementById('modal-title');
         this.modalStakeClaim = document.getElementById('modal-stake-claim');
         this.modalDesc = document.getElementById('modal-desc');
@@ -1597,30 +2148,13 @@
       }
 
       bindEvents() {
-        // Cell interactions
         this.cells.forEach(cell => {
           cell.addEventListener('click', (e) => this.handleCellClick(e));
         });
 
-        // Mode Toggles
-        this.modePvpBtn.addEventListener('click', () => this.setMode('pvp'));
-        this.modeAiBtn.addEventListener('click', () => this.setMode('ai'));
-
-        // Symbol toggle
-        this.btnToggleSymbols.addEventListener('click', () => this.cycleSymbols());
-
-        // Sound Toggle
-        this.soundBtn.addEventListener('click', () => {
-          this.sound.muted = !this.sound.muted;
-          this.soundIcon.textContent = this.sound.muted ? '🔇' : '🎵';
-          this.soundBtn.style.opacity = this.sound.muted ? '0.45' : '1';
-          if (!this.sound.muted) this.sound.playClick();
-        });
-
-        // Theme Toggle (Velvet Pink / Strawberry Milk)
+        // Theme Toggle
         this.themeBtn.addEventListener('click', () => {
           document.body.classList.toggle('theme-strawberry');
-          this.sound.playClick();
           const isLight = document.body.classList.contains('theme-strawberry');
           this.themeBtn.innerHTML = isLight ? '🌙' : '🍓';
         });
@@ -1632,103 +2166,204 @@
           this.rerollStakes();
         });
 
-        // Sweet love notes
+        // Love Letter Modal
+        this.btnOpenLetter.addEventListener('click', () => {
+          this.letterModal.classList.add('active');
+          this.letterModal.setAttribute('aria-hidden', 'false');
+        });
+
+        this.btnCloseLetter.addEventListener('click', () => {
+          this.letterModal.classList.remove('active');
+          this.letterModal.setAttribute('aria-hidden', 'true');
+          this.showToast("Signed with 1,000,000 kisses from Arjun! 💋✨");
+        });
+
+        this.letterModal.addEventListener('click', (e) => {
+          if (e.target === this.letterModal) {
+            this.letterModal.classList.remove('active');
+          }
+        });
+
+        // Open Memory Modal from polaroids or button
+        document.querySelectorAll('.floating-polaroid').forEach(card => {
+          card.addEventListener('click', () => {
+            const url = card.getAttribute('data-img');
+            const caption = card.getAttribute('data-caption');
+            this.openMemoryLightbox(url, caption);
+          });
+        });
+
+        this.btnOpenMemories.addEventListener('click', () => {
+          // Open a random photo from our memory collection
+          const mem = MEMORY_PHOTOS[Math.floor(Math.random() * MEMORY_PHOTOS.length)];
+          this.openMemoryLightbox(mem.url, mem.caption);
+        });
+
+        this.btnCloseMemory.addEventListener('click', () => {
+          this.memoryModal.classList.remove('active');
+        });
+
+        this.memoryModal.addEventListener('click', (e) => {
+          if (e.target === this.memoryModal) {
+            this.memoryModal.classList.remove('active');
+          }
+        });
+
+        // Sweet love notes from Arjun
         this.btnLoveNote.addEventListener('click', () => this.triggerSweetNote());
 
-        // Buttons
-        this.btnRestart.addEventListener('click', () => {
-          this.sound.playClick();
-          this.restartRound();
-        });
+        // Restart & Reset
+        this.btnRestart.addEventListener('click', () => this.restartRound());
+        this.btnResetScores.addEventListener('click', () => this.resetScores());
 
-        this.btnResetScores.addEventListener('click', () => {
-          this.sound.playClick();
-          this.resetScores();
-        });
-
-        // Modal Buttons
+        // Victory Modal
         this.modalBtnReplay.addEventListener('click', () => {
-          this.sound.playClick();
           this.hideModal();
           this.restartRound();
         });
 
         this.modalBtnDismiss.addEventListener('click', () => {
-          this.sound.playClick();
           this.hideModal();
         });
 
-        // Keyboard 'R' to restart
+        // Keyboard 'R'
         window.addEventListener('keydown', (e) => {
           if (e.key === 'r' || e.key === 'R') {
-            if (!this.modal.classList.contains('active')) {
+            if (!this.modal.classList.contains('active') && !this.letterModal.classList.contains('active') && !this.memoryModal.classList.contains('active')) {
               this.restartRound();
             }
           }
         });
       }
 
-      get symbols() {
-        return SYMBOL_SETS[this.symbolSetIndex];
-      }
+      /* ==========================================
+         BACKGROUND MUSIC CONTROLLER (AY HAIRATHE)
+         ========================================== */
+      initBackgroundMusic() {
+        // Autoplay on first user interaction anywhere on screen
+        const startAudio = () => {
+          if (this.audio.paused) {
+            this.audio.play().then(() => {
+              this.vinylDisc.classList.remove('paused');
+              this.btnMusicToggle.textContent = '⏸️';
+            }).catch(() => {});
+          }
+          window.removeEventListener('pointerdown', startAudio);
+        };
+        window.addEventListener('pointerdown', startAudio);
 
-      cycleSymbols() {
-        this.symbolSetIndex = (this.symbolSetIndex + 1) % SYMBOL_SETS.length;
-        this.symbolDisplay.textContent = this.symbols.label;
-        this.iconArjun.textContent = this.symbols.x;
-        this.iconMeenakshi.textContent = this.symbols.o;
-        this.sound.playClick();
-
-        // Refresh board markers with new symbol
-        this.board.forEach((val, idx) => {
-          if (val === 'X') {
-            this.cells[idx].innerHTML = `<span class="mark">${this.symbols.x}</span>`;
-          } else if (val === 'O') {
-            this.cells[idx].innerHTML = `<span class="mark">${this.symbols.o}</span>`;
+        this.musicWidget.addEventListener('click', () => {
+          if (this.audio.paused) {
+            this.audio.play();
+            this.vinylDisc.classList.remove('paused');
+            this.btnMusicToggle.textContent = '⏸️';
+            this.showToast("Playing 'Ay Hairathe' for you, Meenakshi 🎶💕");
+          } else {
+            this.audio.pause();
+            this.vinylDisc.classList.add('paused');
+            this.btnMusicToggle.textContent = '▶️';
           }
         });
-
-        this.updateUI();
       }
 
-      rerollStakes() {
-        this.sound.playClick();
-        let newStake = this.currentStake;
-        while (newStake === this.currentStake) {
-          newStake = COUPLE_STAKES[Math.floor(Math.random() * COUPLE_STAKES.length)];
+      /* ==========================================
+         GOLDEN SERIAL LIGHTS GENERATOR
+         ========================================== */
+      initGoldenSerialLights() {
+        const container = document.getElementById('serial-lights');
+        const count = Math.max(12, Math.floor(window.innerWidth / 45));
+
+        // SVG Wire
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'serial-wire');
+        svg.setAttribute('viewBox', `0 0 ${window.innerWidth} 35`);
+        svg.setAttribute('preserveAspectRatio', 'none');
+
+        let pathD = `M 0 5 `;
+        const step = window.innerWidth / count;
+        for (let i = 0; i < count; i++) {
+          const x1 = i * step + step * 0.5;
+          const x2 = (i + 1) * step;
+          pathD += `Q ${x1} 22, ${x2} 5 `;
         }
-        this.currentStake = newStake;
-        this.stakesText.textContent = this.currentStake;
 
-        // Little bounce animation
-        this.stakesBanner.style.transform = 'scale(1.03)';
-        setTimeout(() => {
-          this.stakesBanner.style.transform = '';
-        }, 200);
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', pathD);
+        path.setAttribute('stroke', 'rgba(255, 215, 0, 0.45)');
+        path.setAttribute('stroke-width', '1.6');
+        path.setAttribute('fill', 'none');
+        svg.appendChild(path);
+        container.appendChild(svg);
+
+        // Hanging Bulbs
+        for (let i = 0; i < count; i++) {
+          const bulbWrap = document.createElement('div');
+          bulbWrap.className = 'serial-bulb-wrap';
+          bulbWrap.style.left = `${(i * step) + (step * 0.5)}px`;
+          bulbWrap.style.position = 'absolute';
+          bulbWrap.style.top = '14px';
+
+          const socket = document.createElement('div');
+          socket.className = 'bulb-socket';
+
+          const bulb = document.createElement('div');
+          bulb.className = 'serial-bulb';
+          bulb.style.animationDelay = `${(Math.random() * 2.5).toFixed(2)}s`;
+          bulb.style.animationDuration = `${(Math.random() * 1.5 + 1.8).toFixed(2)}s`;
+
+          bulbWrap.appendChild(socket);
+          bulbWrap.appendChild(bulb);
+          container.appendChild(bulbWrap);
+        }
       }
 
-      triggerSweetNote() {
-        this.sound.playClick();
-        const note = SWEET_NOTES[Math.floor(Math.random() * SWEET_NOTES.length)];
-        this.showToast(note);
+      /* ==========================================
+         DRIFTING MEMORY PHOTO BUBBLES
+         ========================================== */
+      initDriftingMemoryBubbles() {
+        const galleryBg = document.getElementById('memory-gallery-bg');
+        let photoIndex = 0;
+
+        const spawnDriftingPhoto = () => {
+          const mem = MEMORY_PHOTOS[photoIndex % MEMORY_PHOTOS.length];
+          photoIndex++;
+
+          const el = document.createElement('div');
+          el.className = 'drifting-memory';
+          el.style.left = `${Math.random() * 85 + 5}vw`;
+          el.style.animationDuration = `${Math.random() * 10 + 16}s`;
+
+          const img = document.createElement('img');
+          img.src = mem.url;
+          img.alt = mem.caption;
+
+          el.appendChild(img);
+          el.addEventListener('click', () => {
+            this.openMemoryLightbox(mem.url, mem.caption);
+          });
+
+          galleryBg.appendChild(el);
+
+          setTimeout(() => {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }, 26000);
+        };
+
+        // Seed floating memories
+        setTimeout(spawnDriftingPhoto, 2000);
+        setInterval(spawnDriftingPhoto, 6500);
       }
 
-      showToast(msg) {
-        const toast = document.createElement('div');
-        toast.className = 'toast-love';
-        toast.innerHTML = `<span>💌</span> <span>${msg}</span>`;
-        this.toastContainer.appendChild(toast);
-
-        setTimeout(() => {
-          if (toast.parentNode) {
-            toast.parentNode.removeChild(toast);
-          }
-        }, 4000);
+      openMemoryLightbox(url, caption) {
+        this.memoryModalImg.src = url;
+        this.memoryModalCaption.textContent = caption;
+        this.memoryModal.classList.add('active');
+        this.memoryModal.setAttribute('aria-hidden', 'false');
       }
 
       initFloatingBackgroundHearts() {
         const container = document.getElementById('floating-hearts');
-        const heartIcons = ['💖', '💕', '💗', '🌸', '✨', '🍓', '🎀', '💘', '🤍'];
+        const heartIcons = ['💖', '💕', '💗', '🌸', '✨', '🍓', '🎀', '💘', '🤍', '👑'];
 
         const createHeart = () => {
           const heart = document.createElement('div');
@@ -1744,17 +2379,15 @@
           }, 16000);
         };
 
-        // Seed initial hearts
-        for (let i = 0; i < 12; i++) {
-          setTimeout(createHeart, i * 450);
+        for (let i = 0; i < 10; i++) {
+          setTimeout(createHeart, i * 500);
         }
-        setInterval(createHeart, 1200);
+        setInterval(createHeart, 1400);
       }
 
       initClickToSpawnHearts() {
-        const icons = ['💖', '💕', '✨', '💘', '🌸', '💋', '💗'];
+        const icons = ['💖', '💕', '✨', '💘', '🌸', '💋', '💗', '👑'];
         window.addEventListener('pointerdown', (e) => {
-          // Spawn 3 mini cute hearts around tap location
           for (let i = 0; i < 3; i++) {
             const h = document.createElement('div');
             h.className = 'click-heart';
@@ -1777,9 +2410,41 @@
         });
       }
 
+      rerollStakes() {
+        let newStake = this.currentStake;
+        while (newStake === this.currentStake) {
+          newStake = COUPLE_STAKES[Math.floor(Math.random() * COUPLE_STAKES.length)];
+        }
+        this.currentStake = newStake;
+        this.stakesText.textContent = this.currentStake;
+
+        this.stakesBanner.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+          this.stakesBanner.style.transform = '';
+        }, 180);
+      }
+
+      triggerSweetNote() {
+        const note = SWEET_NOTES[Math.floor(Math.random() * SWEET_NOTES.length)];
+        this.showToast(note);
+      }
+
+      showToast(msg) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-love';
+        toast.innerHTML = `<span>💌</span> <span>${msg}</span>`;
+        this.toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 4200);
+      }
+
       loadSavedState() {
         try {
-          const savedScores = localStorage.getItem('arjun_meenakshi_scores');
+          const savedScores = localStorage.getItem('for_meenakshi_robo_scores');
           if (savedScores) {
             this.scores = JSON.parse(savedScores);
           }
@@ -1788,32 +2453,8 @@
 
       saveScores() {
         try {
-          localStorage.setItem('arjun_meenakshi_scores', JSON.stringify(this.scores));
+          localStorage.setItem('for_meenakshi_robo_scores', JSON.stringify(this.scores));
         } catch (e) {}
-      }
-
-      setMode(mode) {
-        if (this.gameMode === mode) return;
-        this.sound.playClick();
-        this.gameMode = mode;
-
-        if (mode === 'pvp') {
-          this.modePvpBtn.classList.add('active');
-          this.modePvpBtn.setAttribute('aria-checked', 'true');
-          this.modeAiBtn.classList.remove('active');
-          this.modeAiBtn.setAttribute('aria-checked', 'false');
-          this.labelMeenakshi.textContent = 'MEENAKSHI';
-          this.showToast("Couples Match: Arjun vs Meenakshi! May the best sweetheart win! 💕");
-        } else {
-          this.modeAiBtn.classList.add('active');
-          this.modeAiBtn.setAttribute('aria-checked', 'true');
-          this.modePvpBtn.classList.remove('active');
-          this.modePvpBtn.setAttribute('aria-checked', 'false');
-          this.labelMeenakshi.textContent = 'CUPID BOT';
-          this.showToast("Solo Practice vs Cupid Bot! Arjun training for Meenakshi! 🏹");
-        }
-
-        this.restartRound();
       }
 
       handleCellClick(e) {
@@ -1822,9 +2463,11 @@
         const index = parseInt(e.currentTarget.dataset.index, 10);
         if (this.board[index] !== null) return;
 
+        // Meenakshi's move
         this.makeMove(index, this.currentPlayer);
 
-        if (!this.isGameOver && this.gameMode === 'ai' && this.currentPlayer === 'O') {
+        // Robo Arjun's turn
+        if (!this.isGameOver && this.currentPlayer === 'X') {
           this.triggerBotTurn();
         }
       }
@@ -1832,16 +2475,25 @@
       makeMove(index, player) {
         this.board[index] = player;
         const cell = this.cells[index];
-        const symbol = player === 'X' ? this.symbols.x : this.symbols.o;
 
-        cell.classList.add('taken', player === 'X' ? 'mark-arjun' : 'mark-meenakshi');
-        cell.innerHTML = `<span class="mark">${symbol}</span>`;
-        cell.setAttribute('aria-label', `Cell ${index + 1}, placed by ${player === 'X' ? 'Arjun' : 'Meenakshi'}`);
-
-        if (player === 'X') {
-          this.sound.playArjunMove();
+        if (player === 'O') {
+          // Meenakshi's picture
+          cell.classList.add('taken', 'mark-meenakshi');
+          cell.innerHTML = `
+            <div class="cell-photo-mark">
+              <img src="assets/o.jpeg" alt="Meenakshi">
+            </div>
+          `;
+          cell.setAttribute('aria-label', `Cell ${index + 1}, placed by Meenakshi`);
         } else {
-          this.sound.playMeenakshiMove();
+          // Robo Arjun's picture
+          cell.classList.add('taken', 'mark-arjun');
+          cell.innerHTML = `
+            <div class="cell-photo-mark">
+              <img src="assets/x.jpeg" alt="Arjun">
+            </div>
+          `;
+          cell.setAttribute('aria-label', `Cell ${index + 1}, placed by Robo Arjun`);
         }
 
         const winResult = this.checkWin(this.board);
@@ -1851,14 +2503,14 @@
         } else if (this.isBoardFull(this.board)) {
           this.handleDraw();
         } else {
-          this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
+          this.currentPlayer = this.currentPlayer === 'O' ? 'X' : 'O';
           this.updateUI();
         }
       }
 
       triggerBotTurn() {
         this.isBotThinking = true;
-        this.turnText.textContent = "Cupid Bot is aiming an arrow... 🏹";
+        this.turnText.textContent = "Robo Arjun is calculating... 🤖💕";
 
         setTimeout(() => {
           if (this.isGameOver) {
@@ -1869,9 +2521,9 @@
           const bestMove = this.getBestMove();
           this.isBotThinking = false;
           if (bestMove !== null && bestMove !== undefined) {
-            this.makeMove(bestMove, 'O');
+            this.makeMove(bestMove, 'X');
           }
-        }, 400);
+        }, 500);
       }
 
       getBestMove() {
@@ -1881,8 +2533,8 @@
 
         if (available.length === 0) return null;
 
-        // Friendly Cupid bot (70% smart, 30% soft play)
-        if (Math.random() < 0.3) {
+        // Friendly bot: Arjun programmed it to give Meenakshi a lot of easy wins!
+        if (Math.random() < 0.5) {
           return available[Math.floor(Math.random() * available.length)];
         }
 
@@ -1891,7 +2543,7 @@
 
         for (let i = 0; i < available.length; i++) {
           const move = available[i];
-          this.board[move] = 'O';
+          this.board[move] = 'X';
           const score = this.minimax(this.board, 0, false);
           this.board[move] = null;
 
@@ -1907,7 +2559,7 @@
       minimax(board, depth, isMaximizing) {
         const winCheck = this.checkWin(board);
         if (winCheck) {
-          return winCheck.winner === 'O' ? 10 - depth : depth - 10;
+          return winCheck.winner === 'X' ? 10 - depth : depth - 10;
         }
         if (this.isBoardFull(board)) return 0;
 
@@ -1915,7 +2567,7 @@
           let maxEval = -Infinity;
           for (let i = 0; i < 9; i++) {
             if (board[i] === null) {
-              board[i] = 'O';
+              board[i] = 'X';
               const evaluation = this.minimax(board, depth + 1, false);
               board[i] = null;
               maxEval = Math.max(maxEval, evaluation);
@@ -1926,7 +2578,7 @@
           let minEval = Infinity;
           for (let i = 0; i < 9; i++) {
             if (board[i] === null) {
-              board[i] = 'X';
+              board[i] = 'O';
               const evaluation = this.minimax(board, depth + 1, true);
               board[i] = null;
               minEval = Math.min(minEval, evaluation);
@@ -1952,41 +2604,33 @@
 
       handleWin(winResult) {
         this.isGameOver = true;
-        const winner = winResult.winner; // 'X' or 'O'
+        const winner = winResult.winner; // 'O' or 'X'
 
-        // Highlight cells
         winResult.combo.forEach(idx => {
           this.cells[idx].classList.add('winning-cell');
         });
 
-        // Draw glowing love laser
         this.drawStrikeLine(winResult.line, winner);
 
-        // Update score
         this.scores[winner]++;
         this.saveScores();
         this.updateUI();
 
-        // Fanfare & Confetti
-        this.sound.playWinFanfare();
         this.fx.burst(winner);
 
-        // Sweet modal title & description
-        let title, desc, iconClass, iconSymbol;
-        if (winner === 'X') {
-          title = "Arjun Wins Meenakshi's Heart! 💘";
-          desc = "A masterstroke of love! Arjun claimed the grid, but Meenakshi rules his entire heart anyway! 😘";
-          iconClass = "winner-arjun";
-          iconSymbol = this.symbols.x;
-        } else {
+        let title, desc, picSrc;
+        if (winner === 'O') {
           title = "Queen Meenakshi Takes The Crown! 👑💖";
-          desc = "Pure perfection! Meenakshi wins this round effortlessly! Arjun, prepare to pay your dues! 🥰✨";
-          iconClass = "winner-meenakshi";
-          iconSymbol = this.symbols.o;
+          desc = "Flawless victory! Robo Arjun's circuits melted from your beauty! Arjun happily surrenders! 🥰✨";
+          picSrc = "assets/o.jpeg";
+        } else {
+          title = "Robo Arjun Got Lucky! 🤖💘";
+          desc = "Robo Arjun managed a lucky win! But he immediately transmits: 'The real Arjun demands 10 victory kisses now!' 😘";
+          picSrc = "assets/x.jpeg";
         }
 
         setTimeout(() => {
-          this.showModal(iconClass, iconSymbol, title, desc, this.currentStake);
+          this.showModal(picSrc, title, desc, this.currentStake);
         }, 650);
       }
 
@@ -1996,22 +2640,20 @@
         this.saveScores();
         this.updateUI();
 
-        this.sound.playDrawTune();
         this.fx.burst('tie');
 
         setTimeout(() => {
           this.showModal(
-            'winner-tie',
-            '🫂',
-            "It's a Soulmate Match! 💕",
-            "Neither Arjun nor Meenakshi could be defeated! Perfect harmony means mandatory cuddles right now!",
-            "Both winners! Share a sweet dessert together tonight! 🍰🍓"
+            'assets/o.jpeg',
+            "Soulmates In Pure Harmony! 💕",
+            "Perfect balance between Queen Meenakshi and Robo Arjun! Mandatory tight cuddles with the real Arjun right now!",
+            "Both winners! Share a sweet dessert and unlimited kisses together! 🍰🍓"
           );
         }, 600);
       }
 
       drawStrikeLine(lineCoords, winner) {
-        const color = winner === 'X' ? 'var(--arjun-color)' : 'var(--meenakshi-color)';
+        const color = winner === 'O' ? 'var(--meenakshi-color)' : 'var(--arjun-color)';
         this.strikeLine.setAttribute('x1', `${lineCoords.x1}%`);
         this.strikeLine.setAttribute('y1', `${lineCoords.y1}%`);
         this.strikeLine.setAttribute('x2', `${lineCoords.x2}%`);
@@ -2027,9 +2669,8 @@
         this.strikeLine.classList.remove('active');
       }
 
-      showModal(iconClass, iconSymbol, title, desc, stake) {
-        this.modalIcon.className = `modal-icon-badge ${iconClass}`;
-        this.modalIcon.textContent = iconSymbol;
+      showModal(picSrc, title, desc, stake) {
+        this.modalWinnerPic.src = picSrc;
         this.modalTitle.textContent = title;
         this.modalDesc.textContent = desc;
         this.modalStakeClaim.textContent = stake;
@@ -2046,7 +2687,7 @@
         this.board = Array(9).fill(null);
         this.isGameOver = false;
         this.isBotThinking = false;
-        this.currentPlayer = 'X';
+        this.currentPlayer = 'O'; // Meenakshi always goes first
 
         this.clearStrikeLine();
 
@@ -2060,39 +2701,35 @@
       }
 
       resetScores() {
-        this.scores = { X: 0, O: 0, ties: 0 };
+        this.scores = { O: 0, X: 0, ties: 0 };
         this.saveScores();
         this.updateUI();
         this.restartRound();
-        this.showToast("Scores reset with love! Starting a fresh love story! ✨");
+        this.showToast("Scores reset! Starting a brand new love story! ✨");
       }
 
       updateUI() {
-        // Update scores
-        this.scoreX.textContent = this.scores.X;
         this.scoreO.textContent = this.scores.O;
+        this.scoreX.textContent = this.scores.X;
         this.scoreTies.textContent = this.scores.ties;
 
-        // Turn indicator
-        if (this.currentPlayer === 'X') {
-          this.turnSymbol.textContent = this.symbols.x;
-          this.turnSymbol.className = 'turn-symbol-badge turn-arjun';
-          this.turnText.textContent = "Arjun's turn to show love!";
-          this.cardX.classList.add('active-turn');
-          this.cardO.classList.remove('active-turn');
-        } else {
-          this.turnSymbol.textContent = this.symbols.o;
-          this.turnSymbol.className = 'turn-symbol-badge turn-meenakshi';
-          this.turnText.textContent = this.gameMode === 'ai' ? "Cupid Bot's turn! 🏹" : "Meenakshi's turn to shine! 🌸";
+        if (this.currentPlayer === 'O') {
+          this.turnAvatar.src = 'assets/o.jpeg';
+          this.turnText.textContent = "Princess Meenakshi's turn to shine! 🌸";
           this.cardO.classList.add('active-turn');
           this.cardX.classList.remove('active-turn');
+        } else {
+          this.turnAvatar.src = 'assets/x.jpeg';
+          this.turnText.textContent = "Robo Arjun's turn (Coded to love you!) 🤖💘";
+          this.cardX.classList.add('active-turn');
+          this.cardO.classList.remove('active-turn');
         }
       }
     }
 
-    // Launch Game on Load
+    // Launch App on Load
     window.addEventListener('DOMContentLoaded', () => {
-      window.game = new RomanticTicTacToe();
+      window.game = new GiftForMeenakshiApp();
     });
   </script>
 </body>
