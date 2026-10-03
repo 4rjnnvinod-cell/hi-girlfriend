@@ -1286,9 +1286,7 @@
     .letter-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(14, 2, 10, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: radial-gradient(circle at center, rgba(35, 8, 26, 0.96), rgba(12, 2, 9, 0.98));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1401,9 +1399,7 @@
     .memory-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(14, 2, 10, 0.9);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: radial-gradient(circle at center, rgba(35, 8, 26, 0.96), rgba(12, 2, 9, 0.98));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1488,9 +1484,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(18, 3, 13, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: radial-gradient(circle at center, rgba(38, 9, 29, 0.95), rgba(14, 2, 10, 0.98));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1737,8 +1731,8 @@
 </head>
 <body>
 
-  <!-- Hidden HTML5 Audio Element for Background Score -->
-  <audio id="bg-music" src="assets/Ay%20Hairathe%20Guru%20320%20Kbps.mp3" loop preload="auto"></audio>
+  <!-- Background Score: Ay Hairathe (Plays Automatically) -->
+  <audio id="bg-music" src="assets/Ay%20Hairathe%20Guru%20320%20Kbps.mp3" loop preload="auto" autoplay playsinline></audio>
 
   <!-- Golden Serial / Fairy Lights String Across Top -->
   <div class="serial-lights-container" id="serial-lights"></div>
@@ -2054,14 +2048,33 @@
     /* ==========================================
        CONFETTI & PARTICLES (OPTIMIZED RENDER LOOP)
        ========================================== */
+    const EMOJI_SPRITE_CACHE = {};
+    function getPreRenderedEmoji(emoji) {
+      if (!EMOJI_SPRITE_CACHE[emoji]) {
+        const offscreen = document.createElement('canvas');
+        offscreen.width = 44;
+        offscreen.height = 44;
+        const octx = offscreen.getContext('2d');
+        octx.font = '28px "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif';
+        octx.textAlign = 'center';
+        octx.textBaseline = 'middle';
+        octx.fillText(emoji, 22, 22);
+        EMOJI_SPRITE_CACHE[emoji] = offscreen;
+      }
+      return EMOJI_SPRITE_CACHE[emoji];
+    }
+
     class LoveCelebration {
       constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
-        this.ctx = this.canvas.getContext('2d');
+        this.ctx = this.canvas.getContext('2d', { alpha: true });
         this.particles = [];
         this.animationId = null;
         this.resize();
         window.addEventListener('resize', () => this.resize(), { passive: true });
+
+        // Pre-warm emoji sprites immediately for smooth bursts
+        ['💖', '💕', '👑', '🌸', '✨', '🍓', '🎀', '🥰'].forEach(getPreRenderedEmoji);
       }
 
       resize() {
@@ -2075,34 +2088,43 @@
           ? ['#ff2d88', '#ff69b4', '#ffd54f', '#ff85be', '#ffffff']
           : ['#38bdf8', '#7dd3fc', '#ffd54f', '#ffd3e6', '#ffffff'];
 
-        const count = 75;
+        // 38 punchy particles for an instant, silky-smooth celebration without lag
+        const count = 38;
         const originX = window.innerWidth / 2;
-        const originY = window.innerHeight / 2;
+        const originY = window.innerHeight * 0.45;
 
         for (let i = 0; i < count; i++) {
           const angle = Math.random() * Math.PI * 2;
-          const speed = Math.random() * 8.5 + 3.5;
-          const isEmoji = Math.random() < 0.45;
+          const speed = Math.random() * 7 + 4;
+          const isEmoji = Math.random() < 0.55;
+          const emojiChar = isEmoji ? heartIcons[Math.floor(Math.random() * heartIcons.length)] : null;
 
           this.particles.push({
             x: originX,
             y: originY,
             vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed - 3,
-            size: isEmoji ? Math.random() * 12 + 14 : Math.random() * 5 + 3,
+            vy: Math.sin(angle) * speed - 2.5,
+            size: isEmoji ? (Math.random() * 6 + 24) : (Math.random() * 4 + 4),
             color: colors[Math.floor(Math.random() * colors.length)],
-            emoji: isEmoji ? heartIcons[Math.floor(Math.random() * heartIcons.length)] : null,
+            sprite: emojiChar ? getPreRenderedEmoji(emojiChar) : null,
             alpha: 1,
-            decay: Math.random() * 0.015 + 0.009,
-            gravity: 0.15,
-            rot: Math.random() * 360,
-            rotSpeed: (Math.random() - 0.5) * 6
+            decay: Math.random() * 0.02 + 0.015,
+            gravity: 0.16
           });
         }
 
         if (!this.animationId) {
           this.render();
         }
+      }
+
+      stop() {
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+        this.particles = [];
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       }
 
       render() {
@@ -2114,31 +2136,23 @@
           p.y += p.vy;
           p.vy += p.gravity;
           p.alpha -= p.decay;
-          p.rot += p.rotSpeed;
 
           if (p.alpha <= 0) {
             this.particles.splice(i, 1);
             continue;
           }
 
-          this.ctx.save();
           this.ctx.globalAlpha = p.alpha;
 
-          if (p.emoji) {
-            this.ctx.font = `${p.size}px serif`;
-            this.ctx.textAlign = 'center';
-            this.ctx.textBaseline = 'middle';
-            this.ctx.translate(p.x, p.y);
-            this.ctx.rotate((p.rot * Math.PI) / 180);
-            this.ctx.fillText(p.emoji, 0, 0);
+          if (p.sprite) {
+            // Direct GPU texture blit: zero font parsing or glyph rebuilding!
+            this.ctx.drawImage(p.sprite, p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
           } else {
             this.ctx.fillStyle = p.color;
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
           }
-
-          this.ctx.restore();
         }
 
         if (this.particles.length > 0) {
@@ -2333,30 +2347,59 @@
       }
 
       /* ==========================================
-         BACKGROUND MUSIC CONTROLLER (AY HAIRATHE)
+         BACKGROUND MUSIC CONTROLLER (AY HAIRATHE - AUTOPLAY)
          ========================================== */
       initBackgroundMusic() {
-        const startAudio = () => {
+        const setPlayingUI = () => {
+          this.vinylDisc.classList.remove('paused');
+          this.btnMusicToggle.textContent = '⏸️';
+        };
+
+        const setPausedUI = () => {
+          this.vinylDisc.classList.add('paused');
+          this.btnMusicToggle.textContent = '▶️';
+        };
+
+        const playSong = () => {
+          if (!this.audio) return;
+          const promise = this.audio.play();
+          if (promise !== undefined) {
+            promise.then(() => {
+              setPlayingUI();
+            }).catch(() => {
+              setPausedUI();
+            });
+          }
+        };
+
+        // 1. Attempt immediate autoplay as soon as page begins loading
+        playSong();
+
+        // 2. Also try on window load
+        window.addEventListener('load', playSong, { once: true });
+
+        // 3. Fallback: If browser autoplay policy strictly requires user gesture,
+        // trigger playback immediately on the very first touch/click/key anywhere on screen!
+        const gestureEvents = ['pointerdown', 'touchstart', 'mousedown', 'keydown', 'click'];
+        const onFirstGesture = () => {
+          if (this.audio && this.audio.paused) {
+            playSong();
+          }
+          gestureEvents.forEach(evt => window.removeEventListener(evt, onFirstGesture));
+        };
+        gestureEvents.forEach(evt => window.addEventListener(evt, onFirstGesture, { once: true, passive: true }));
+
+        // 4. Music Widget click toggle
+        this.musicWidget.addEventListener('click', (e) => {
+          e.stopPropagation();
           if (this.audio.paused) {
             this.audio.play().then(() => {
-              this.vinylDisc.classList.remove('paused');
-              this.btnMusicToggle.textContent = '⏸️';
+              setPlayingUI();
+              this.showToast("Playing 'Ay Hairathe' for you, Meenakshi 🎶💕");
             }).catch(() => {});
-          }
-          window.removeEventListener('pointerdown', startAudio);
-        };
-        window.addEventListener('pointerdown', startAudio);
-
-        this.musicWidget.addEventListener('click', () => {
-          if (this.audio.paused) {
-            this.audio.play();
-            this.vinylDisc.classList.remove('paused');
-            this.btnMusicToggle.textContent = '⏸️';
-            this.showToast("Playing 'Ay Hairathe' for you, Meenakshi 🎶💕");
           } else {
             this.audio.pause();
-            this.vinylDisc.classList.add('paused');
-            this.btnMusicToggle.textContent = '▶️';
+            setPausedUI();
           }
         });
       }
@@ -2559,6 +2602,14 @@
 
       handleCellClick(e) {
         if (this.isGameOver || this.isBotThinking) return;
+
+        // Ensure background music plays immediately if browser delayed autoplay
+        if (this.audio && this.audio.paused) {
+          this.audio.play().then(() => {
+            this.vinylDisc.classList.remove('paused');
+            this.btnMusicToggle.textContent = '⏸️';
+          }).catch(() => {});
+        }
 
         const index = parseInt(e.currentTarget.dataset.index, 10);
         if (this.board[index] !== null) return;
@@ -2770,6 +2821,7 @@
       }
 
       showModal(picSrc, title, desc, stake) {
+        this.fx.stop(); // Clean up celebration particles when modal appears for 100% fluid dialog display
         this.modalWinnerPic.src = picSrc;
         this.modalTitle.textContent = title;
         this.modalDesc.textContent = desc;
@@ -2779,11 +2831,13 @@
       }
 
       hideModal() {
+        this.fx.stop();
         this.modal.classList.remove('active');
         this.modal.setAttribute('aria-hidden', 'true');
       }
 
       restartRound() {
+        this.fx.stop();
         this.board = Array(9).fill(null);
         this.isGameOver = false;
         this.isBotThinking = false;
